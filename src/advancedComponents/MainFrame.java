@@ -16,33 +16,15 @@ public class MainFrame extends JFrame {
     private final static int PROGRESS_POINTERS_WINDOW = 4;
     private final static int ORG_COMPS_AND_DECS = 5;
 
-    private JPanel mainPanel;
-    private JPanel imagePanel;
     private JList<String> componentsList;
-    private JScrollPane listScrollPane;
-    private JButton openWindowButton;
-
     private JLabel imageLabel;
-
-    private String[] componentsNames = { "1. Listy", "2. Tabele", "3. Drzewa", "4. Komponenty tekstowe",
-            "5. Wskaźniki postępu", "6. Organizatory komponentów i dekoratory " };
 
     private ImageIcon[] imageIcons = { new ImageIcon("src/files/ListMouseSelection.png"), new ImageIcon("src/files/Table.png"),
             new ImageIcon("src/files/FileSystemTreeWithCheckBox.png"), new ImageIcon("src/files/TextComponentDemoMetal.png"),
             new ImageIcon("src/files/ProgressBarDemo.png"), new ImageIcon("src/files/decoration.png") };
 
-    public MainFrame() {
-        //Konfiguracja fizycznych właściwości ramki
-        final int SIZE_X = 800;
-        final int SIZE_Y = 400;
-
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Advanced Swing Components - @sh00x.dev");
-        setPreferredSize(new Dimension(SIZE_X, SIZE_Y));
-        setLocationByPlatform(true);
-        setResizable(false);
-        setVisible(true);
-        pack();
+    public MainFrame() throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
         //JLabel zawierająca ilustrację elementu
         imageLabel = new JLabel();
@@ -50,12 +32,14 @@ public class MainFrame extends JFrame {
         imageLabel.setIcon(imageIcons[0]);
 
         //Konfiguracja listy oraz dodanie jej do JScrollPane
+        String[] componentsNames = {"1. Listy", "2. Tabele", "3. Drzewa", "4. Komponenty tekstowe",
+                "5. Wskaźniki postępu", "6. Organizatory komponentów i dekoratory "};
         componentsList = new JList<>(componentsNames);
         componentsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         componentsList.setSelectedIndex(LIST_WINDOW);
 
-        listScrollPane = new JScrollPane(componentsList);
-        openWindowButton = new JButton("Otwórz przykład w nowym oknie");
+        JScrollPane listScrollPane = new JScrollPane(componentsList);
+        JButton openWindowButton = new JButton("Otwórz przykład w nowym oknie");
 
         componentsList.addListSelectionListener(e -> {
             int index = componentsList.getSelectedIndex();
@@ -82,17 +66,29 @@ public class MainFrame extends JFrame {
         openButtonPanel.setLayout(new FlowLayout());
         openButtonPanel.add(openWindowButton);
 
-        imagePanel = new JPanel();
+        JPanel imagePanel = new JPanel();
         imagePanel.setLayout(new BorderLayout());
         imagePanel.add(imageLabel, BorderLayout.CENTER);
         imagePanel.add(openButtonPanel, BorderLayout.SOUTH);
 
         //Konfiguracja mainPanel oraz dodanie do niego elementów
-        mainPanel = new JPanel();
+        JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
 
         mainPanel.add(listScrollPane, BorderLayout.WEST);
         mainPanel.add(imagePanel);
         add(mainPanel);
+
+        //Konfiguracja fizycznych właściwości ramki
+        final int SIZE_X = 800;
+        final int SIZE_Y = 400;
+
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Advanced Swing Components - @sh00x.dev");
+        setPreferredSize(new Dimension(SIZE_X, SIZE_Y));
+        setLocationByPlatform(true);
+        setResizable(false);
+        setVisible(true);
+        pack();
     }
 }
