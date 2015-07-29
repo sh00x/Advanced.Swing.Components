@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/ListWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/MainFrame.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/OrgAndDecsWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/ProgressPointersWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/TablesWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/TextCompWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/TreesWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/app/Main.java" charset="UTF-8" />
+  </component>
+</project>
