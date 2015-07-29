@@ -16,73 +16,22 @@ public class MainFrame extends JFrame {
     private final static int PROGRESS_POINTERS_WINDOW = 4;
     private final static int ORG_COMPS_AND_DECS = 5;
 
-    JPanel mainPanel;
-    JPanel imagePanel;
-    JList<String> componentsList;
-    JScrollPane listScrollPane;
-    JButton openWindowButton;
+    private JPanel mainPanel;
+    private JPanel imagePanel;
+    private JList<String> componentsList;
+    private JScrollPane listScrollPane;
+    private JButton openWindowButton;
 
-    String[] componentsNames = { "1. Listy", "2. Tabele", "3. Drzewa", "4. Komponenty tekstowe",
+    private JLabel imageLabel;
+
+    private String[] componentsNames = { "1. Listy", "2. Tabele", "3. Drzewa", "4. Komponenty tekstowe",
             "5. Wskaźniki postępu", "6. Organizatory komponentów i dekoratory " };
 
+    private ImageIcon[] imageIcons = { new ImageIcon("src/files/ListMouseSelection.png"), new ImageIcon("src/files/Table.png"),
+            new ImageIcon("src/files/FileSystemTreeWithCheckBox.png"), new ImageIcon("src/files/TextComponentDemoMetal.png"),
+            new ImageIcon("src/files/ProgressBarDemo.png"), new ImageIcon("src/files/decoration.png") };
+
     public MainFrame() {
-        String imageReference = "src/files/ListMouseSelection.png";
-
-        //Konfiguracja listy oraz dodanie jej do JScrollPane
-        componentsList = new JList<>(componentsNames);
-        componentsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        listScrollPane = new JScrollPane(componentsList);
-        openWindowButton = new JButton("Otwórz przykład w nowym oknie");
-
-        openWindowButton.addActionListener(e -> {
-            int index = componentsList.getSelectedIndex();
-            switch (index) {
-                case LIST_WINDOW: {
-                    EventQueue.invokeLater(ListWindow::new);
-                    break;
-                }
-                case TABLES_WINDOW: {
-                    EventQueue.invokeLater(TablesWindow::new);
-                    break;
-                }
-                case TREES_WINDOW: {
-                    EventQueue.invokeLater(TreesWindow::new);
-                    break;
-                }
-                case TEXT_COMP_WINDOW: {
-                    EventQueue.invokeLater(TextCompWindow::new);
-                    break;
-                }
-                case PROGRESS_POINTERS_WINDOW: {
-                    EventQueue.invokeLater(ProgressPointersWindow::new);
-                    break;
-                }
-                case ORG_COMPS_AND_DECS: {
-                    EventQueue.invokeLater(OrgAndDecsWindow::new);
-                    break;
-                }
-            }
-        });
-
-        //Konfiguracja imagePanel oraz dodanie do niego elementów
-        JPanel openButtonPanel = new JPanel();
-        openButtonPanel.setLayout(new FlowLayout());
-        openButtonPanel.add(openWindowButton);
-
-        imagePanel = new JPanel();
-        imagePanel.setLayout(new BorderLayout());
-        imagePanel.add(new JLabel(new ImageIcon(imageReference)), BorderLayout.CENTER);
-        imagePanel.add(openButtonPanel, BorderLayout.SOUTH);
-
-        //Konfiguracja mainPanel oraz dodanie do niego elementów
-        mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
-
-        mainPanel.add(listScrollPane, BorderLayout.WEST);
-        mainPanel.add(imagePanel);
-        add(mainPanel);
-
         //Konfiguracja fizycznych właściwości ramki
         final int SIZE_X = 800;
         final int SIZE_Y = 400;
@@ -94,5 +43,56 @@ public class MainFrame extends JFrame {
         setResizable(false);
         setVisible(true);
         pack();
+
+        //JLabel zawierająca ilustrację elementu
+        imageLabel = new JLabel();
+        imageLabel.setHorizontalAlignment(JLabel.CENTER);
+        imageLabel.setIcon(imageIcons[0]);
+
+        //Konfiguracja listy oraz dodanie jej do JScrollPane
+        componentsList = new JList<>(componentsNames);
+        componentsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        componentsList.setSelectedIndex(LIST_WINDOW);
+
+        listScrollPane = new JScrollPane(componentsList);
+        openWindowButton = new JButton("Otwórz przykład w nowym oknie");
+
+        componentsList.addListSelectionListener(e -> {
+            int index = componentsList.getSelectedIndex();
+            if (index == LIST_WINDOW) imageLabel.setIcon(imageIcons[index]);
+            else if (index == TABLES_WINDOW) imageLabel.setIcon(imageIcons[index]);
+            else if (index == TREES_WINDOW) imageLabel.setIcon(imageIcons[index]);
+            else if (index == TEXT_COMP_WINDOW) imageLabel.setIcon(imageIcons[index]);
+            else if (index == PROGRESS_POINTERS_WINDOW) imageLabel.setIcon(imageIcons[index]);
+            else if (index == ORG_COMPS_AND_DECS) imageLabel.setIcon(imageIcons[index]);
+        });
+
+        openWindowButton.addActionListener(e -> {
+            int index = componentsList.getSelectedIndex();
+            if (index == LIST_WINDOW) EventQueue.invokeLater(ListWindow::new);
+            else if (index == TABLES_WINDOW) EventQueue.invokeLater(TablesWindow::new);
+            else if (index == TREES_WINDOW) EventQueue.invokeLater(TreesWindow::new);
+            else if (index == TEXT_COMP_WINDOW) EventQueue.invokeLater(TextCompWindow::new);
+            else if (index == PROGRESS_POINTERS_WINDOW) EventQueue.invokeLater(ProgressPointersWindow::new);
+            else if (index == ORG_COMPS_AND_DECS) EventQueue.invokeLater(OrgAndDecsWindow::new);
+        });
+
+        //Konfiguracja imagePanel oraz dodanie do niego elementów
+        JPanel openButtonPanel = new JPanel();
+        openButtonPanel.setLayout(new FlowLayout());
+        openButtonPanel.add(openWindowButton);
+
+        imagePanel = new JPanel();
+        imagePanel.setLayout(new BorderLayout());
+        imagePanel.add(imageLabel, BorderLayout.CENTER);
+        imagePanel.add(openButtonPanel, BorderLayout.SOUTH);
+
+        //Konfiguracja mainPanel oraz dodanie do niego elementów
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+
+        mainPanel.add(listScrollPane, BorderLayout.WEST);
+        mainPanel.add(imagePanel);
+        add(mainPanel);
     }
 }
