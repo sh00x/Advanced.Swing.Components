@@ -8,8 +8,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 /**
- * Created by sh00x.dev on 2015-07-29.
- * For educational use only.
+ * Created by sh00x.dev
+ * Simple application with Advanced Swing Components
+ * @author sh00x.dev
  */
 public class ListWindow extends JFrame {
 
@@ -118,12 +119,23 @@ public class ListWindow extends JFrame {
         pack();
     }
 
+    /**
+     * Tworzy ustaloną TitledBorder
+     * @param componentName Nazwa dla ramki
+     * @param border Obiekt typu Border
+     * @return TitledBorder z componentName
+     */
     private Border createTitledBorder(String componentName, Border border) {
         Font mainFont = new Font("System", Font.PLAIN, 12);
         return BorderFactory.createTitledBorder(border, componentName,
                 TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, mainFont);
     }
 
+    /**
+     * Dodaje JRadioButton o określonej nazwie i orientacji JList do panelu
+     * @param label Nazwa dla dodawanego RadioButton
+     * @param orientation Jedna spośród wartości: JList.VERTICAL, JList.VERTICAL_WRAP, JList.HORIZONTAL_WRAP
+     */
     private void makeButton(String label, final int orientation) {
         JRadioButton radioButton = new JRadioButton(label);
         radioPanel.add(radioButton);
@@ -136,6 +148,9 @@ public class ListWindow extends JFrame {
 
     }
 
+    /**
+     * Prosta metoda dodająca tekst do modelu listy
+     */
     private void addText() {
         if (!textField.getText().equals(""))
             model.addElement(textField.getText());
