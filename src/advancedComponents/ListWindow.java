@@ -8,12 +8,13 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 /**
- * Created by Ensies on 2015-07-29.
+ * Created by sh00x.dev on 2015-07-29.
+ * For educational use only.
  */
 public class ListWindow extends JFrame {
 
     private JList<String> list;
-    private DefaultListModel model;
+    private DefaultListModel<String> model;
     private JTextField textField;
     private JLabel selectedTextLabel;
 
@@ -23,7 +24,7 @@ public class ListWindow extends JFrame {
     private ButtonGroup radioButtonGroup;
 
     public ListWindow() {
-        model = new DefaultListModel();
+        model = new DefaultListModel<>();
 
         for (int i = 1; i <= 10; i++)
             model.addElement("Example String number: " + i);
