@@ -1,4 +1,4 @@
-package advancedComponents;
+package advancedComponentsWindows;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -113,7 +113,7 @@ public class ListWindow extends JFrame {
             }
         });
 
-        fontCellFrameButton.addActionListener(e -> EventQueue.invokeLater(ListRendereingTestFrame::new));
+        fontCellFrameButton.addActionListener(e -> EventQueue.invokeLater(ListRendereingWindow::new));
 
         //Ustawienia fizycznych właściwości okna
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);

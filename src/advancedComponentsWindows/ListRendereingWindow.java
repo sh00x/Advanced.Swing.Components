@@ -1,12 +1,14 @@
-package advancedComponents;
+package advancedComponentsWindows;
+
+import additionalResources.FontCellRenderer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 
 
-public class ListRendereingTestFrame extends JFrame {
-    public ListRendereingTestFrame() {
+public class ListRendereingWindow extends JFrame {
+    public ListRendereingWindow() {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(2, 1));
 
@@ -23,10 +25,13 @@ public class ListRendereingTestFrame extends JFrame {
         textArea.setBorder(BorderFactory.createEtchedBorder());
 
         Font[] fonts = {new Font("Serif", Font.PLAIN, 14), new Font("SansSerif", Font.PLAIN, 14),
-                new Font("Monospaced", Font.PLAIN, 14), new Font("Dialog", Font.PLAIN, 14)};
+                new Font("Monospaced", Font.PLAIN, 14), new Font("Dialog", Font.PLAIN, 14),
+                new Font("Times New Roman", Font.PLAIN, 14), new Font("Arial", Font.PLAIN, 14)};
 
         JList<Font> fontList = new JList<>(fonts);
         fontList.setCellRenderer(new FontCellRenderer());
+        fontList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        fontList.addListSelectionListener(e -> textArea.setFont(fontList.getSelectedValue()));
 
         JScrollPane fontScrollPane = new JScrollPane(fontList);
         JPanel listPanel = new JPanel();

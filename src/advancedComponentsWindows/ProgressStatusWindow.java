@@ -1,4 +1,4 @@
-package advancedComponents;
+package advancedComponentsWindows;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,13 +6,13 @@ import java.awt.*;
 /**
  * Created by Ensies on 2015-07-29.
  */
-public class TreesWindow extends JFrame {
+public class ProgressStatusWindow extends JFrame {
     private final int SIZEX = 400;
     private final int SIZEY = 400;
 
-    public TreesWindow() {
+    public ProgressStatusWindow() {
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Okno drzew - @sh00x.dev");
+        setTitle("Okno wskaźników postępu - @sh00x.dev");
         setPreferredSize(new Dimension(SIZEX, SIZEY));
         setLocationByPlatform(true);
         setResizable(false);

@@ -1,4 +1,6 @@
-package advancedComponents;
+package appCore;
+
+import advancedComponentsWindows.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +11,7 @@ import java.awt.*;
  *
  * @author sh00x.dev
  */
-public class MainFrame extends JFrame {
+public class MainWindow extends JFrame {
     private final static int LIST_WINDOW = 0;
     private final static int TABLES_WINDOW = 1;
     private final static int TREES_WINDOW = 2;
@@ -24,7 +26,7 @@ public class MainFrame extends JFrame {
             new ImageIcon("src/files/FileSystemTreeWithCheckBox.png"), new ImageIcon("src/files/TextComponentDemoMetal.png"),
             new ImageIcon("src/files/ProgressBarDemo.png"), new ImageIcon("src/files/decoration.png")};
 
-    public MainFrame() throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
+    public MainWindow() throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
         //JLabel zawierająca ilustrację elementu
@@ -36,6 +38,7 @@ public class MainFrame extends JFrame {
         String[] componentsNames = {"1. Listy", "2. Tabele", "3. Drzewa", "4. Komponenty tekstowe",
                 "5. Wskaźniki postępu", "6. Organizatory komponentów i dekoratory "};
         componentsList = new JList<>(componentsNames);
+        componentsList.add(new JSeparator());
         componentsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         componentsList.setSelectedIndex(LIST_WINDOW);
 
@@ -58,7 +61,7 @@ public class MainFrame extends JFrame {
             else if (index == TABLES_WINDOW) EventQueue.invokeLater(TablesWindow::new);
             else if (index == TREES_WINDOW) EventQueue.invokeLater(TreesWindow::new);
             else if (index == TEXT_COMP_WINDOW) EventQueue.invokeLater(TextCompWindow::new);
-            else if (index == PROGRESS_POINTERS_WINDOW) EventQueue.invokeLater(ProgressPointersWindow::new);
+            else if (index == PROGRESS_POINTERS_WINDOW) EventQueue.invokeLater(ProgressStatusWindow::new);
             else if (index == ORG_COMPS_AND_DECS) EventQueue.invokeLater(OrgAndDecsWindow::new);
         });
 

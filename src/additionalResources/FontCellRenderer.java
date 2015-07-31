@@ -1,4 +1,4 @@
-package advancedComponents;
+package additionalResources;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,6 +1,4 @@
-package app;
-
-import advancedComponents.MainFrame;
+package appCore;
 
 import java.awt.*;
 
@@ -9,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             try {
-                new MainFrame();
+                new MainWindow();
             } catch (Exception e) {
                 e.printStackTrace();
             }
