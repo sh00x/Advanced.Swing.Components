@@ -6,7 +6,6 @@ import java.io.*;
 
 
 public class ListRendereingTestFrame extends JFrame {
-
     public ListRendereingTestFrame() {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(2, 1));

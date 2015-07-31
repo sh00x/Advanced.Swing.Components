@@ -9,7 +9,7 @@ public class FontCellRenderer extends JComponent implements ListCellRenderer<Fon
     private Color background;
     private Color foreground;
 
-    public Component getListCellRendererComponent(JList<? extends Font> list, Font value,int index, boolean isSelected, boolean cellHasFocus) {
+    public Component getListCellRendererComponent(JList<? extends Font> list, Font value, int index, boolean isSelected, boolean cellHasFocus) {
         font = value;
         background = isSelected ? list.getSelectionBackground() : list.getBackground();
         foreground = isSelected ? list.getSelectionForeground() : list.getForeground();

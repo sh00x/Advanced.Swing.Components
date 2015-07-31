@@ -10,10 +10,10 @@ import java.awt.event.KeyEvent;
 /**
  * Created by sh00x.dev
  * Simple application with Advanced Swing Components
+ *
  * @author sh00x.dev
  */
 public class ListWindow extends JFrame {
-
     private JList<String> list;
     private DefaultListModel<String> model;
     private JTextField textField;
@@ -127,8 +127,9 @@ public class ListWindow extends JFrame {
 
     /**
      * Tworzy ustaloną TitledBorder
+     *
      * @param componentName Nazwa dla ramki
-     * @param border Obiekt typu Border
+     * @param border        Obiekt typu Border
      * @return TitledBorder z componentName
      */
     private Border createTitledBorder(String componentName, Border border) {
@@ -139,13 +140,14 @@ public class ListWindow extends JFrame {
 
     /**
      * Dodaje JRadioButton o określonej nazwie i orientacji JList do panelu
-     * @param label Nazwa dla dodawanego RadioButton
+     *
+     * @param label       Nazwa dla dodawanego RadioButton
      * @param orientation Jedna spośród wartości: JList.VERTICAL, JList.VERTICAL_WRAP, JList.HORIZONTAL_WRAP
      */
     private void makeButton(String label, final int orientation) {
         JRadioButton radioButton = new JRadioButton(label);
         radioPanel.add(radioButton);
-        if(radioButtonGroup.getButtonCount() == 0) radioButton.setSelected(true);
+        if (radioButtonGroup.getButtonCount() == 0) radioButton.setSelected(true);
         radioButtonGroup.add(radioButton);
         radioButton.addActionListener(e -> {
             list.setLayoutOrientation(orientation);

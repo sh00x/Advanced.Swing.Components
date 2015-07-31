@@ -6,6 +6,7 @@ import java.awt.*;
 /**
  * Created by sh00x.dev
  * Simple application with Advanced Swing Components
+ *
  * @author sh00x.dev
  */
 public class MainFrame extends JFrame {
@@ -19,9 +20,9 @@ public class MainFrame extends JFrame {
     private JList<String> componentsList;
     private JLabel imageLabel;
 
-    private ImageIcon[] imageIcons = { new ImageIcon("src/files/ListMouseSelection.png"), new ImageIcon("src/files/Table.png"),
+    private ImageIcon[] imageIcons = {new ImageIcon("src/files/ListMouseSelection.png"), new ImageIcon("src/files/Table.png"),
             new ImageIcon("src/files/FileSystemTreeWithCheckBox.png"), new ImageIcon("src/files/TextComponentDemoMetal.png"),
-            new ImageIcon("src/files/ProgressBarDemo.png"), new ImageIcon("src/files/decoration.png") };
+            new ImageIcon("src/files/ProgressBarDemo.png"), new ImageIcon("src/files/decoration.png")};
 
     public MainFrame() throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
