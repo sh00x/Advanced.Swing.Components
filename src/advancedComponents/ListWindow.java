@@ -64,11 +64,17 @@ public class ListWindow extends JFrame {
         radioButtonGroup = new ButtonGroup();
 
         JPanel toolsPanel = new JPanel();
-        toolsPanel.setLayout(new GridLayout(4, 1));
+        toolsPanel.setLayout(new GridLayout(5, 1));
         toolsPanel.add(new JLabel("Wpisz coś i dodaj:", JLabel.CENTER));
         toolsPanel.add(textPanel);
         toolsPanel.add(buttonPanel);
         toolsPanel.add(radioPanel);
+
+        JButton fontCellFrameButton = new JButton("Listing 6.4");
+        JPanel listingPanel = new JPanel();
+        listingPanel.setLayout(new FlowLayout());
+        listingPanel.add(fontCellFrameButton);
+        toolsPanel.add(listingPanel);
 
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
@@ -107,12 +113,12 @@ public class ListWindow extends JFrame {
             }
         });
 
+        fontCellFrameButton.addActionListener(e -> EventQueue.invokeLater(ListRendereingTestFrame::new));
+
         //Ustawienia fizycznych właściwości okna
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Okno list - @sh00x.dev");
-        int SIZEX = 400;
-        int SIZEY = 400;
-        setPreferredSize(new Dimension(SIZEX, SIZEY));
+        setPreferredSize(new Dimension(400, 400));
         setLocationByPlatform(true);
         setResizable(false);
         setVisible(true);
