@@ -25,7 +25,7 @@ public class TableThree extends JFrame {
     private JCheckBoxMenuItem columnsItem;
     private JCheckBoxMenuItem cellsItem;
     private ImageIcon planetIcon = new ImageIcon("src/files/planet.png");
-    private String[] coluimnNames = {"Planet", "Radius", "Moons", "Gaseous", "Color", "Image"};
+    private String[] columnNames = {"Planet", "Radius", "Moons", "Gaseous", "Color", "Image"};
 
     private Object[][] cells = {
             {"Mercury", 2440.0, 0, false, Color.YELLOW, planetIcon},
@@ -43,7 +43,7 @@ public class TableThree extends JFrame {
     public TableThree() {
         setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 
-        TableModel model = new DefaultTableModel(cells, coluimnNames) {
+        TableModel model = new DefaultTableModel(cells, columnNames) {
             public Class<?> getColumnClass(int c) {
                 return cells[0][c].getClass();
             }
@@ -81,7 +81,6 @@ public class TableThree extends JFrame {
         };
 
         //Tworzy menu
-
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
 
@@ -168,7 +167,7 @@ public class TableThree extends JFrame {
 
         //Konfiguracja fizycznych w³aœciwoœci ramki
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new Dimension(900, 900));
+       // setPreferredSize(new Dimension(900, 900));
         setTitle("Tabela 3 - @sh00x.dev");
         setLocationByPlatform(true);
         setVisible(true);
