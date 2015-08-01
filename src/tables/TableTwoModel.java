@@ -14,8 +14,8 @@ public class TableTwoModel extends AbstractTableModel {
      * Tworzy model tabeli inwestycji
      *
      * @param years   liczba lat
-     * @param minRate najniøsza stopa oprocentowania
-     * @param maxRate najwyøsza stopa oprocentowania
+     * @param minRate najni≈ºsza stopa oprocentowania
+     * @param maxRate najwy≈ºsza stopa oprocentowania
      */
     public TableTwoModel(int years, int minRate, int maxRate) {
         this.years = years;

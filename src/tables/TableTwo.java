@@ -15,7 +15,7 @@ public class TableTwo extends JFrame {
         JScrollPane scrollPane = new JScrollPane(table);
         add(scrollPane);
 
-        //Konfiguracja fizycznych w≥aúciwoúci ramki
+        //Konfiguracja fizycznych w≈Ça≈õciwo≈õci ramki
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tabela 2 - @sh00x.dev");
         setLocationByPlatform(true);
