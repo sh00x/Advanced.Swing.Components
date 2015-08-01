@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * Created by sh00x.dev
@@ -47,41 +49,32 @@ public class MainWindow extends JFrame {
         JScrollPane listScrollPane = new JScrollPane(componentsList);
         JButton openWindowButton = new JButton("Otwórz przykład w nowym oknie");
 
-        componentsList.addListSelectionListener(e -> {
-            int index = componentsList.getSelectedIndex();
-            if (index == LIST_WINDOW) imageLabel.setIcon(imageIcons[index]);
-            else if (index == TABLES_WINDOW) imageLabel.setIcon(imageIcons[index]);
-            else if (index == TREES_WINDOW) imageLabel.setIcon(imageIcons[index]);
-            else if (index == TEXT_COMP_WINDOW) imageLabel.setIcon(imageIcons[index]);
-            else if (index == PROGRESS_POINTERS_WINDOW) imageLabel.setIcon(imageIcons[index]);
-            else if (index == ORG_COMPS_AND_DECS) imageLabel.setIcon(imageIcons[index]);
-        });
+
 
         componentsList.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                int index = componentsList.getSelectedIndex();
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    if (index == LIST_WINDOW) EventQueue.invokeLater(ListWindow::new);
-                    else if (index == TABLES_WINDOW) EventQueue.invokeLater(TablesWindow::new);
-                    else if (index == TREES_WINDOW) EventQueue.invokeLater(TreesWindow::new);
-                    else if (index == TEXT_COMP_WINDOW) EventQueue.invokeLater(TextCompWindow::new);
-                    else if (index == PROGRESS_POINTERS_WINDOW)
-                        EventQueue.invokeLater(ProgressStatusWindow::new);
-                    else if (index == ORG_COMPS_AND_DECS) EventQueue.invokeLater(OrgAndDecsWindow::new);
+                   openSelectedWindow();
                 }
             }
         });
 
-        openWindowButton.addActionListener(e -> {
-            int index = componentsList.getSelectedIndex();
-            if (index == LIST_WINDOW) EventQueue.invokeLater(ListWindow::new);
-            else if (index == TABLES_WINDOW) EventQueue.invokeLater(TablesWindow::new);
-            else if (index == TREES_WINDOW) EventQueue.invokeLater(TreesWindow::new);
-            else if (index == TEXT_COMP_WINDOW) EventQueue.invokeLater(TextCompWindow::new);
-            else if (index == PROGRESS_POINTERS_WINDOW) EventQueue.invokeLater(ProgressStatusWindow::new);
-            else if (index == ORG_COMPS_AND_DECS) EventQueue.invokeLater(OrgAndDecsWindow::new);
+        componentsList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(e.getClickCount() == 2) {
+                    openSelectedWindow();
+                }
+            }
         });
+
+        componentsList.addListSelectionListener(e -> {
+            int index = componentsList.getSelectedIndex();
+            imageLabel.setIcon(imageIcons[index]);
+        });
+
+        openWindowButton.addActionListener(e -> openSelectedWindow());
 
         //Konfiguracja imagePanel oraz dodanie do niego elementów
         JPanel openButtonPanel = new JPanel();
@@ -112,5 +105,15 @@ public class MainWindow extends JFrame {
         setResizable(false);
         setVisible(true);
         pack();
+    }
+
+    public void openSelectedWindow() {
+        int index = componentsList.getSelectedIndex();
+        if (index == LIST_WINDOW) EventQueue.invokeLater(ListWindow::new);
+        else if (index == TABLES_WINDOW) EventQueue.invokeLater(TablesWindow::new);
+        else if (index == TREES_WINDOW) EventQueue.invokeLater(TreesWindow::new);
+        else if (index == TEXT_COMP_WINDOW) EventQueue.invokeLater(TextCompWindow::new);
+        else if (index == PROGRESS_POINTERS_WINDOW) EventQueue.invokeLater(ProgressStatusWindow::new);
+        else if (index == ORG_COMPS_AND_DECS) EventQueue.invokeLater(OrgAndDecsWindow::new);
     }
 }

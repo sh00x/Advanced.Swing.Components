@@ -13,5 +13,6 @@
     <file url="file://$PROJECT_DIR$/src/appCore/MainWindow.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/tables/TableTwo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/tables/TableTwoModel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/trees/TreeOne.java" charset="UTF-8" />
   </component>
 </project>

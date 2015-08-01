@@ -21,6 +21,7 @@ public class TablesWindow extends JFrame {
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
+
         buttonPanel.add(tableOne);
         buttonPanel.add(tableTwo);
         buttonPanel.add(tableThree);
