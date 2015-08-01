@@ -2,7 +2,6 @@ package tables;
 
 import javax.swing.*;
 import javax.swing.table.TableModel;
-import java.awt.*;
 
 /**
  * Created by Ensies on 2015-07-31.

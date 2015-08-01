@@ -44,21 +44,6 @@ public class MainWindow extends JFrame {
         componentsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         componentsList.setSelectedIndex(LIST_WINDOW);
 
-        componentsList.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                int index = componentsList.getSelectedIndex();
-                if(e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    if (index == LIST_WINDOW) EventQueue.invokeLater(ListWindow::new);
-                    else if (index == TABLES_WINDOW) EventQueue.invokeLater(TablesWindow::new);
-                    else if (index == TREES_WINDOW) EventQueue.invokeLater(TreesWindow::new);
-                    else if (index == TEXT_COMP_WINDOW) EventQueue.invokeLater(TextCompWindow::new);
-                    else if (index == PROGRESS_POINTERS_WINDOW) EventQueue.invokeLater(ProgressStatusWindow::new);
-                    else if (index == ORG_COMPS_AND_DECS) EventQueue.invokeLater(OrgAndDecsWindow::new);
-                }
-            }
-        });
-
         JScrollPane listScrollPane = new JScrollPane(componentsList);
         JButton openWindowButton = new JButton("Otwórz przykład w nowym oknie");
 
@@ -70,6 +55,22 @@ public class MainWindow extends JFrame {
             else if (index == TEXT_COMP_WINDOW) imageLabel.setIcon(imageIcons[index]);
             else if (index == PROGRESS_POINTERS_WINDOW) imageLabel.setIcon(imageIcons[index]);
             else if (index == ORG_COMPS_AND_DECS) imageLabel.setIcon(imageIcons[index]);
+        });
+
+        componentsList.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                int index = componentsList.getSelectedIndex();
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    if (index == LIST_WINDOW) EventQueue.invokeLater(ListWindow::new);
+                    else if (index == TABLES_WINDOW) EventQueue.invokeLater(TablesWindow::new);
+                    else if (index == TREES_WINDOW) EventQueue.invokeLater(TreesWindow::new);
+                    else if (index == TEXT_COMP_WINDOW) EventQueue.invokeLater(TextCompWindow::new);
+                    else if (index == PROGRESS_POINTERS_WINDOW)
+                        EventQueue.invokeLater(ProgressStatusWindow::new);
+                    else if (index == ORG_COMPS_AND_DECS) EventQueue.invokeLater(OrgAndDecsWindow::new);
+                }
+            }
         });
 
         openWindowButton.addActionListener(e -> {
