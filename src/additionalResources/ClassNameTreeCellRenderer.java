@@ -15,6 +15,7 @@ public class ClassNameTreeCellRenderer extends DefaultTreeCellRenderer {
 
     public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected, boolean expanded, boolean leaf, int row, boolean hasFocus) {
         super.getTreeCellRendererComponent(tree, value, selected, expanded, leaf, row, hasFocus);
+
         //Pobiera obiekt użytkownika
         DefaultMutableTreeNode node = (DefaultMutableTreeNode) value;
         Class<?> c = (Class<?>) node.getUserObject();
@@ -22,9 +23,9 @@ public class ClassNameTreeCellRenderer extends DefaultTreeCellRenderer {
         //Przy pierwszym uzyciu tworzy czcionke pochyła odpowiadajaca danej czcione prostej
         if (plainFont == null) {
             plainFont = getFont();
+
             //Obiekt rysujący komórkę drzewa wywołany jest czasami
             //dla etykiety, która nie posiada określonej czcionki (null)
-
             if (plainFont != null) italicFont = plainFont.deriveFont(Font.ITALIC);
         }
 

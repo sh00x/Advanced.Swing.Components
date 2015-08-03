@@ -5,7 +5,6 @@ import additionalResources.ClassNameTreeCellRenderer;
 import javax.swing.*;
 import javax.swing.tree.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -33,7 +32,7 @@ public class TreeThree extends JFrame {
         //Dodaje klasę do drzewa
         addClass(getClass());
 
-        ClassNameTreeCellRenderer renderer = new ClassNameTreeCellRenderer();
+        // ClassNameTreeCellRenderer renderer = new ClassNameTreeCellRenderer();
         // renderer.setClosedIcon(new ImageIcon(getClass().getResource(/*"red-ball.gif"*/)));
         // renderer.setClosedIcon(new ImageIcon(getClass().getResource(/*"yellow-ball.gif"*/)));
         // renderer.setClosedIcon(new ImageIcon(getClass().getResource(/*"blue-ball.gif"*/)));
@@ -81,7 +80,7 @@ public class TreeThree extends JFrame {
     public void addTextField() {
         JPanel panel = new JPanel();
         ActionListener addListener = e -> {
-            //dodaje do drzewa klasę, której nazwa znajduje sie w polu tekstowym
+            //Dodaje do drzewa klasę, której nazwa znajduje sie w polu tekstowym
             try {
                 String text = textField.getText();
                 addClass(Class.forName(text)); //opróżnia zawartość
@@ -111,7 +110,7 @@ public class TreeThree extends JFrame {
      */
     @SuppressWarnings("unchecked")
     public DefaultMutableTreeNode findUserObject(Object obj) {
-        //szuka węzła zawierającego obiekt użytkownika
+        //Szuka węzła zawierającego obiekt użytkownika
         Enumeration<TreeNode> e = (Enumeration<TreeNode>) root.breadthFirstEnumeration();
         while (e.hasMoreElements()) {
             DefaultMutableTreeNode node = (DefaultMutableTreeNode) e.nextElement();
@@ -127,15 +126,14 @@ public class TreeThree extends JFrame {
      * @return nowo dodany węzeł
      */
     public DefaultMutableTreeNode addClass(Class<?> c) {
-        //dodaje klasę do drzewa
-
-        //pomija typy, które nie są klasami
+        //Pomija typy, które nie są klasami
         if (c.isInterface() || c.isPrimitive()) return null;
 
-        //jeśli klasa znajduje się w drzewie, to najpierw należy dodać rekrurencyjnie do drzewa jej klasy bazowe
-
+        //Jeśli klasa znajduje się w drzewie, to najpierw należy dodać rekrurencyjnie do drzewa jej klasy bazowe
+        //Po ludzku: Wpisujesz coś do textField, on sprawdza czy ta klasa ma nadklasę. Jeśli tak, metoda leci od
+        //nowa, aż do momentu gdy nie będzie nic wyżej. Jak już dotrze na sam szczyt, przypisuję wartość korzenia
+        //i przechodzi dalej do tworzenia węzłów
         Class<?> s = c.getSuperclass();
-
         DefaultMutableTreeNode parent;
         if (s == null) parent = root;
         else parent = addClass(s);
@@ -156,7 +154,7 @@ public class TreeThree extends JFrame {
      * @return łańcuch znaków zawierający nazwy i typy zmiennych
      */
     public static String getFieldDescription(Class<?> c) {
-        //korzysta z mechanizmu reflekcji
+        //Korzysta z mechanizmu reflekcji
         StringBuilder r = new StringBuilder();
         Field[] fields = c.getDeclaredFields();
         for (int i = 0; i < fields.length; i++) {
