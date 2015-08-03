@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/additionalResources/ClassNameTreeCellRenderer.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/additionalResources/FontCellRenderer.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/advancedComponentsWindows/ListRendereingWindow.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/advancedComponentsWindows/ListWindow.java" charset="UTF-8" />
@@ -14,5 +15,6 @@
     <file url="file://$PROJECT_DIR$/src/tables/TableTwo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/tables/TableTwoModel.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/trees/TreeOne.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/trees/TreeThree.java" charset="UTF-8" />
   </component>
 </project>

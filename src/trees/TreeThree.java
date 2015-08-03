@@ -25,22 +25,22 @@ public class TreeThree extends JFrame {
     private JTextArea textArea;
 
     public TreeThree() {
-        //W korzeniu drzewa znajduje siê klasa Object, mo¿na tam daæ cokolwiek
+        //W korzeniu drzewa znajduje siÄ™ klasa Object, moÅ¼na tam daÄ‡ cokolwiek
         root = new DefaultMutableTreeNode(java.lang.Object.class);
         model = new DefaultTreeModel(root);
         tree = new JTree(model);
 
-        //Dodaje klasê do drzewa
+        //Dodaje klasÄ™ do drzewa
         addClass(getClass());
 
         ClassNameTreeCellRenderer renderer = new ClassNameTreeCellRenderer();
-//        renderer.setClosedIcon(new ImageIcon(getClass().getResource(/*"red-ball.gif"*/null)));
-  //      renderer.setClosedIcon(new ImageIcon(getClass().getResource(/*"yellow-ball.gif"*/null)));
-    //    renderer.setClosedIcon(new ImageIcon(getClass().getResource(/*"blue-ball.gif"*/null)));
+        // renderer.setClosedIcon(new ImageIcon(getClass().getResource(/*"red-ball.gif"*/)));
+        // renderer.setClosedIcon(new ImageIcon(getClass().getResource(/*"yellow-ball.gif"*/)));
+        // renderer.setClosedIcon(new ImageIcon(getClass().getResource(/*"blue-ball.gif"*/)));
 
-        //Konfiguruje sposób wyboru wêz³ów
+        //Konfiguruje sposÃ³b wyboru wÄ™zÅ‚Ã³w
         tree.addTreeSelectionListener(e -> {
-            //U¿ytkownik wybra³ inny wêze³ drzewa i nale¿y zaktualizowaæ opis klasy
+            //UÅ¼ytkownik wybraÅ‚ inny wÄ™zeÅ‚ drzewa i naleÅ¼y zaktualizowaÄ‡ opis klasy
             TreePath path = tree.getSelectionPath();
             if (path == null) return;
             DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) path.getLastPathComponent();
@@ -51,7 +51,7 @@ public class TreeThree extends JFrame {
         int mode = TreeSelectionModel.SINGLE_TREE_SELECTION;
         tree.getSelectionModel().setSelectionMode(mode);
 
-        //Obszar tekstowy zawieraj¹cy opis klasy
+        //Obszar tekstowy zawierajÄ…cy opis klasy
         textArea = new JTextArea();
 
         //Dodaje komponenty drzewa i pola tekstowego do panelu
@@ -64,7 +64,7 @@ public class TreeThree extends JFrame {
 
         addTextField();
 
-        //Konfiguracja fizycznych w³aœciwoœci okna
+        //Konfiguracja fizycznych wÅ‚aÅ›ciwoÅ›ci okna
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
         setTitle("Drzewo 3 - @sh00x.dev");
@@ -75,23 +75,23 @@ public class TreeThree extends JFrame {
 
     /**
      * Dodaje pole tekstowe i przycisk "Add"
-     * umo¿liwiaj¹c dodanie nowej klasy do drzewa
+     * umoÅ¼liwiajÄ…c dodanie nowej klasy do drzewa
      *
      */
     public void addTextField() {
         JPanel panel = new JPanel();
         ActionListener addListener = e -> {
-            //dodaje do drzewa klasê, której nazwa znajduje sie w polu tekstowym
+            //dodaje do drzewa klasÄ™, ktÃ³rej nazwa znajduje sie w polu tekstowym
             try {
                 String text = textField.getText();
-                addClass(Class.forName(text)); //opró¿nia zawartoœæ
+                addClass(Class.forName(text)); //oprÃ³Å¼nia zawartoÅ›Ä‡
                 textField.setText("");
             } catch (ClassNotFoundException e1) {
                 JOptionPane.showMessageDialog(null, "Class not found");
             }
         };
 
-        //pole tekstowe, w którym wprowadzane s¹ nazwy nowych klas
+        //pole tekstowe, w ktÃ³rym wprowadzane sÄ… nazwy nowych klas
         textField = new JTextField(20);
         textField.addActionListener(addListener);
         panel.add(textField);
@@ -104,14 +104,14 @@ public class TreeThree extends JFrame {
     }
 
     /**
-     * Wyszukujê obiekt w drzewie.
+     * WyszukujÄ™ obiekt w drzewie.
      * @param obj szukany obiekt
-     * @return wêze³ zawieraj¹cy szukany obiekt lub null,
-     * jeœli obiekt nie znajduje siê w drzewie
+     * @return wÄ™zeÅ‚ zawierajÄ…cy szukany obiekt lub null,
+     * jeÅ›li obiekt nie znajduje siÄ™ w drzewie
      */
     @SuppressWarnings("unchecked")
     public DefaultMutableTreeNode findUserObject(Object obj) {
-        //szuka wêz³a zawieraj¹cego obiekt u¿ytkownika
+        //szuka wÄ™zÅ‚a zawierajÄ…cego obiekt uÅ¼ytkownika
         Enumeration<TreeNode> e = (Enumeration<TreeNode>) root.breadthFirstEnumeration();
         while (e.hasMoreElements()) {
             DefaultMutableTreeNode node = (DefaultMutableTreeNode) e.nextElement();
@@ -121,18 +121,18 @@ public class TreeThree extends JFrame {
     }
 
     /**
-     * Dodaje do drzewa klasê i jej klasy bazowe,
-     * których nie ma jeszcze w drzewie
+     * Dodaje do drzewa klasÄ™ i jej klasy bazowe,
+     * ktÃ³rych nie ma jeszcze w drzewie
      * @param c dodawana klasa
-     * @return nowo dodany wêze³
+     * @return nowo dodany wÄ™zeÅ‚
      */
     public DefaultMutableTreeNode addClass(Class<?> c) {
-        //dodaje klasê do drzewa
+        //dodaje klasÄ™ do drzewa
 
-        //pomija typy, które nie s¹ klasami
+        //pomija typy, ktÃ³re nie sÄ… klasami
         if (c.isInterface() || c.isPrimitive()) return null;
 
-        //jeœli klasa znajduje siê w drzewie, to najpierw nale¿y dodaæ rekrurencyjnie do drzewa jej klasy bazowe
+        //jeÅ›li klasa znajduje siÄ™ w drzewie, to najpierw naleÅ¼y dodaÄ‡ rekrurencyjnie do drzewa jej klasy bazowe
 
         Class<?> s = c.getSuperclass();
 
@@ -140,11 +140,11 @@ public class TreeThree extends JFrame {
         if (s == null) parent = root;
         else parent = addClass(s);
 
-        //Dodaje klasê jako wêze³ podrzêdny
+        //Dodaje klasÄ™ jako wÄ™zeÅ‚ podrzÄ™dny
         DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(c);
         model.insertNodeInto(newNode, parent, parent.getChildCount());
 
-        //Sprawia, ¿e wêze³ jest widoczny
+        //Sprawia, Å¼e wÄ™zeÅ‚ jest widoczny
         TreePath path = new TreePath(model.getPathToRoot(newNode));
         tree.makeVisible(path);
 
@@ -152,8 +152,8 @@ public class TreeThree extends JFrame {
     }
 
     /**
-     * Zwraca opis sk³adowych klasy,
-     * @return ³añcuch znaków zawieraj¹cy nazwy i typy zmiennych
+     * Zwraca opis skÅ‚adowych klasy,
+     * @return Å‚aÅ„cuch znakÃ³w zawierajÄ…cy nazwy i typy zmiennych
      */
     public static String getFieldDescription(Class<?> c) {
         //korzysta z mechanizmu reflekcji
