@@ -1,6 +1,8 @@
 package advancedComponentsWindows;
 
 import trees.TreeOne;
+import trees.TreeThree;
+import trees.TreeTwo;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,6 +27,8 @@ public class TreesWindow extends JFrame {
         buttonPanel.add(treeThree);
 
         treeOne.addActionListener(e -> EventQueue.invokeLater(TreeOne::new));
+        treeTwo.addActionListener(e -> EventQueue.invokeLater(TreeTwo::new));
+        treeThree.addActionListener(e -> EventQueue.invokeLater(TreeThree::new));
 
         JPanel toolsPanel = new JPanel();
         toolsPanel.setLayout(new GridLayout(2, 1));
