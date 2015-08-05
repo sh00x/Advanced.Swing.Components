@@ -37,9 +37,9 @@ public class CompOne extends JFrame {
 
         add(panel);
 
-        //Konfiguracja fizycznych w≥aúciwoúci okna
+        //Konfiguracja fizycznych w≈Ça≈õciwo≈õci okna
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Okno komponentÛw tekstowych - @sh00x.dev");
+        setTitle("Okno komponent√≥w tekstowych 1 - @sh00x.dev");
         //setPreferredSize(new Dimension(SIZEX, SIZEY));
         setResizable(false);
         setVisible(true);
@@ -47,7 +47,7 @@ public class CompOne extends JFrame {
     }
 
     /**
-     *   Nadaje t≥u kolor zgodnie z wartoúciami pÛl tekstowych
+     *   Nadaje t≈Çu kolor zgodnie z warto≈õciami p√≥l tekstowych
      */
     public void setColor() {
         try {
@@ -56,9 +56,9 @@ public class CompOne extends JFrame {
             int blue = Integer.parseInt(blueField.getText().trim());
             panel.setBackground(new Color(red, green, blue));
         } catch (NumberFormatException e) {
-            //nie zmienia koloru, jeúli dane nie mogπ byÊ parsowane
+            //nie zmienia koloru, je≈õli dane nie mogƒÖ byƒá parsowane
         } catch (IllegalArgumentException e) {
-            //nie zmienia koloru, jeúli dane nie mogπ byÊ parsowane
+            //nie zmienia koloru, je≈õli dane nie mogƒÖ byƒá parsowane
         }
     }
 }
