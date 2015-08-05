@@ -20,7 +20,7 @@ public class ClassNameTreeCellRenderer extends DefaultTreeCellRenderer {
         DefaultMutableTreeNode node = (DefaultMutableTreeNode) value;
         Class<?> c = (Class<?>) node.getUserObject();
 
-        //Przy pierwszym uzyciu tworzy czcionke pochyła odpowiadajaca danej czcione prostej
+        //Przy pierwszym uzyciu tworzy czcionke pochyła odpowiadajaca danej czcionce prostej
         if (plainFont == null) {
             plainFont = getFont();
 

@@ -32,10 +32,11 @@ public class TreeThree extends JFrame {
         //Dodaje klasę do drzewa
         addClass(getClass());
 
+        //Tutaj można wstawić ikony zamkniętych oraz otwartych węzłów, a także liści
         // ClassNameTreeCellRenderer renderer = new ClassNameTreeCellRenderer();
         // renderer.setClosedIcon(new ImageIcon(getClass().getResource(/*"red-ball.gif"*/)));
-        // renderer.setClosedIcon(new ImageIcon(getClass().getResource(/*"yellow-ball.gif"*/)));
-        // renderer.setClosedIcon(new ImageIcon(getClass().getResource(/*"blue-ball.gif"*/)));
+        // renderer.setOpenIcon(new ImageIcon(getClass().getResource(/*"yellow-ball.gif"*/)));
+        // renderer.setLeafIcon(new ImageIcon(getClass().getResource(/*"blue-ball.gif"*/)));
 
         //Konfiguruje sposób wyboru węzłów
         tree.addTreeSelectionListener(e -> {
