@@ -24,9 +24,7 @@ public class ListRendereingWindow extends JFrame {
         }
         textArea.setBorder(BorderFactory.createEtchedBorder());
 
-        Font[] fonts = {new Font("Serif", Font.PLAIN, 14), new Font("SansSerif", Font.PLAIN, 14),
-                new Font("Monospaced", Font.PLAIN, 14), new Font("Dialog", Font.PLAIN, 14),
-                new Font("Times New Roman", Font.PLAIN, 14), new Font("Arial", Font.PLAIN, 14)};
+        Font[] fonts = getFonts();
 
         JList<Font> fontList = new JList<>(fonts);
         fontList.setCellRenderer(new FontCellRenderer());
@@ -74,5 +72,19 @@ public class ListRendereingWindow extends JFrame {
 
         textArea.setText(builder.toString());
         reader.close();
+    }
+
+    /**
+     * Funkcja sprawdzająca jakie czcionki dostępne są w systemie
+     * @return Font[] dostępnych w systemie
+     */
+    private Font[] getFonts() {
+        String[] fontFamilyNames = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+        Font[] fonts = new Font[fontFamilyNames.length];
+
+        for(int i = 0; i < fonts.length; i++)
+            fonts[i] = new Font(fontFamilyNames[i], Font.PLAIN, 14);
+
+        return fonts;
     }
 }

@@ -94,36 +94,36 @@ public class ListWindow extends JFrame {
         });
         list.addListSelectionListener(e -> selectedTextLabel.setText(list.getSelectedValue()));
 
-        textField.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    addText();
-                }
+    textField.addKeyListener(new KeyAdapter() {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                addText();
             }
-        });
+        }
+    });
 
-        list.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_DELETE) {
-                    model.removeElementAt(list.getSelectedIndex());
-                    list.setSelectedIndex(list.getFirstVisibleIndex());
-                }
+    list.addKeyListener(new KeyAdapter() {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == KeyEvent.VK_DELETE) {
+                model.removeElementAt(list.getSelectedIndex());
+                list.setSelectedIndex(list.getFirstVisibleIndex());
             }
-        });
+        }
+    });
 
-        fontCellFrameButton.addActionListener(e -> EventQueue.invokeLater(ListRendereingWindow::new));
+    fontCellFrameButton.addActionListener(e -> EventQueue.invokeLater(ListRendereingWindow::new));
 
-        //Ustawienia fizycznych właściwości okna
-        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Okno list - @sh00x.dev");
-        setPreferredSize(new Dimension(400, 400));
-        setLocationByPlatform(true);
-        setResizable(false);
-        setVisible(true);
-        pack();
-    }
+    //Ustawienia fizycznych właściwości okna
+    setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+    setTitle("Okno list - @sh00x.dev");
+    setPreferredSize(new Dimension(400, 400));
+    setLocationByPlatform(true);
+    setResizable(false);
+    setVisible(true);
+    pack();
+}
 
     /**
      * Tworzy ustaloną TitledBorder
