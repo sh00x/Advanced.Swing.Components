@@ -25,7 +25,7 @@ public class CompThree extends JFrame {
         JSpinner defaultSpinner = new JSpinner();
         addRow("Default", defaultSpinner);
 
-        JSpinner boundedSpinner = new JSpinner(new SpinnerNumberModel(5, 0, 10, 0.5));
+        JSpinner boundedSpinner = new JSpinner(new SpinnerNumberModel(5, 0, 10, 0.5));  //Początkowa wartość 5, krok 0.5, zakres <0, 10>
         addRow("Bounded", boundedSpinner);
 
         String[] fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();

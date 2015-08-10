@@ -1,5 +1,6 @@
 package advancedComponentsWindows;
 
+import textComponents.CompFour;
 import textComponents.CompOne;
 import textComponents.CompThree;
 import textComponents.CompTwo;
@@ -23,14 +24,17 @@ public class TextCompWindow extends JFrame {
         JButton compOne = new JButton("Komponenty tekstowe 1");
         JButton compTwo = new JButton("Komponenty tekstowe 2");
         JButton compThree = new JButton("Komponenty tekstowe 3");
+        JButton compFour = new JButton("Komponenty tekstowe 4");
 
         compOne.addActionListener(e -> EventQueue.invokeLater(CompOne::new));
         compTwo.addActionListener(e -> EventQueue.invokeLater(CompTwo::new));
         compThree.addActionListener(e -> EventQueue.invokeLater(CompThree::new));
+        compFour.addActionListener(e -> EventQueue.invokeLater(CompFour::new));
 
         buttonPanel.add(compOne);
         buttonPanel.add(compTwo);
         buttonPanel.add(compThree);
+        buttonPanel.add(compFour);
 
         add(buttonPanel);
 
