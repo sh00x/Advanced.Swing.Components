@@ -3,6 +3,9 @@ package advancedComponentsWindows;
 import additionalResources.FontCellRenderer;
 
 import javax.swing.*;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.io.*;
 
@@ -12,31 +15,33 @@ public class ListRendereingWindow extends JFrame {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(2, 1));
 
-        JTextArea textArea = new JTextArea(10, 15);
-        textArea.setFont(new Font("System", Font.PLAIN, 15));
-        textArea.setLineWrap(true);
-        textArea.setEditable(false);
+        JTextPane textPane = new JTextPane();
+        //Zapewnia formatowanie tekstu
+        StyledDocument doc = textPane.getStyledDocument();
+        SimpleAttributeSet center = new SimpleAttributeSet();
+        StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
+        doc.setParagraphAttributes(0, doc.getLength(), center, false);
 
         try {
-            setAreaText("src/files/Ostatnie życzenie.txt", textArea);
+            setPaneText("src/files/listek.txt", textPane);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        textArea.setBorder(BorderFactory.createEtchedBorder());
+        textPane.setBorder(BorderFactory.createEtchedBorder());
 
         Font[] fonts = getFonts();
 
         JList<Font> fontList = new JList<>(fonts);
         fontList.setCellRenderer(new FontCellRenderer());
         fontList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        fontList.addListSelectionListener(e -> textArea.setFont(fontList.getSelectedValue()));
+        fontList.addListSelectionListener(e -> textPane.setFont(fontList.getSelectedValue()));
 
         JScrollPane fontScrollPane = new JScrollPane(fontList);
         JPanel listPanel = new JPanel();
         listPanel.setLayout(new FlowLayout());
         listPanel.add(fontScrollPane);
 
-        JScrollPane textScrollPane = new JScrollPane(textArea);
+        JScrollPane textScrollPane = new JScrollPane(textPane);
         textScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         mainPanel.add(textScrollPane, BorderLayout.NORTH);
         mainPanel.add(listPanel, BorderLayout.SOUTH);
@@ -58,19 +63,19 @@ public class ListRendereingWindow extends JFrame {
      * Ustawia zawartość przekazanej JTextArea na tekst zawarty w pliku tekstowym
      *
      * @param path     Path do pliku tekstowego
-     * @param textArea JTextArea przekazana jako referencja
+     * @param textPane JTextArea przekazana jako referencja
      * @throws IOException
      */
-    private void setAreaText(String path, JTextArea textArea) throws IOException {
+    private void setPaneText(String path, JTextPane textPane) throws IOException {
         File textFile = new File(path);
         BufferedReader reader = new BufferedReader(new FileReader(textFile));
         StringBuilder builder = new StringBuilder();
 
         String line;
         while ((line = reader.readLine()) != null)
-            builder.append(line + "\n");
+            builder.append(line).append("\n");
 
-        textArea.setText(builder.toString());
+        textPane.setText(builder.toString());
         reader.close();
     }
 
