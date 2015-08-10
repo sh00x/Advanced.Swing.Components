@@ -50,11 +50,11 @@ public class CompTwo extends JFrame {
         addRow("Liczba (Commit behavior):", intFieldTwo);
 
         //Pole z zainstalowanym filtrem - uniemożliwa wprowadzanie znaków które nie są cyframi
-        JFormattedTextField intFieldThree = new JFormattedTextField(new InternationalFormatter(NumberFormat.getIntegerInstance())) {
+        JFormattedTextField intFieldThree = new JFormattedTextField(new InternationalFormatter(NumberFormat.getIntegerInstance()) {
             protected DocumentFilter getDocumentFilter() {
                 return filter;
             }
-        };
+        });
         intFieldThree.setValue(new Integer(100));
         intFieldThree.setHorizontalAlignment(JFormattedTextField.CENTER);
         addRow("Filtrowana liczba:", intFieldThree);
@@ -106,7 +106,6 @@ public class CompTwo extends JFrame {
         }
 
         try {
-            //Genialne!
             //# - cyfra, U - litera
             MaskFormatter formatter = new MaskFormatter("###-##-####");
             formatter.setPlaceholderCharacter('0');
@@ -144,6 +143,8 @@ public class CompTwo extends JFrame {
         mainPanel.add(field);
         final JLabel valueLabel = new JLabel();
         mainPanel.add(valueLabel);
+
+        //TODO: What the hell
         okButton.addActionListener(e -> {
             Object value = field.getValue();
             Class<?> cl = value.getClass();

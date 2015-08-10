@@ -8,6 +8,23 @@ import java.util.StringTokenizer;
  * Obiekt formatujący 4-bajtowe adresy (IPv4) IP postaci a.b.c.d
  */
 public class IPAddressFormatter extends DefaultFormatter {
+    //Odpowiada za wartosc wyświetlaną w polu tekstowym, utworzoną z elementów byte[] podanych w kodzie
+    @Override
+    public String valueToString(Object value) throws ParseException {
+        if (!(value instanceof byte[])) throw new ParseException("Not a byte[]", 0);
+        byte[] a = (byte[]) value;
+        if (a.length != 4) throw new ParseException("Length != 4", 0);
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < 4; i++) {
+            int b = a[i];
+            if (b < 0) b += 256;
+            builder.append(String.valueOf(b));
+            if (i < 3) builder.append(".");
+        }
+        return builder.toString();
+    }
+
+    //Parsuje tekst wprowadzony przez użytkownika, zamienia go z powrotem na obiekt
     @Override
     public Object stringToValue(String text) throws ParseException {
         StringTokenizer tokenizer = new StringTokenizer(text, ".");
@@ -25,20 +42,5 @@ public class IPAddressFormatter extends DefaultFormatter {
         }
         if (tokenizer.hasMoreTokens()) throw new ParseException("Too many bytes", 0);
         return a;
-    }
-
-    @Override
-    public String valueToString(Object value) throws ParseException {
-        if (!(value instanceof byte[])) throw new ParseException("Not a byte[]", 0);
-        byte[] a = (byte[]) value;
-        if (a.length != 4) throw new ParseException("Length != 4", 0);
-        StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < 4; i++) {
-            int b = a[i];
-            if (b < 0) b += 256;
-            builder.append(String.valueOf(b));
-            if (i < 3) builder.append(".");
-        }
-        return builder.toString();
     }
 }
