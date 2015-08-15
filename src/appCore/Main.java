@@ -1,5 +1,6 @@
 package appCore;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Main {
@@ -8,7 +9,13 @@ public class Main {
         EventQueue.invokeLater(() -> {
             try {
                 new MainWindow();
-            } catch (Exception e) {
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (UnsupportedLookAndFeelException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
         });

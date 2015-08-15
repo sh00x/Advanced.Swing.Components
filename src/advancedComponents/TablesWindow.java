@@ -1,4 +1,4 @@
-package advancedComponentsWindows;
+package advancedComponents;
 
 import tables.TableOne;
 import tables.TableThree;

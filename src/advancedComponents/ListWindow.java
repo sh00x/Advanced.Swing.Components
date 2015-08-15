@@ -1,4 +1,4 @@
-package advancedComponentsWindows;
+package advancedComponents;
 
 import javax.swing.*;
 import javax.swing.border.Border;

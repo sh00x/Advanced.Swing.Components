@@ -1,6 +1,6 @@
 package appCore;
 
-import advancedComponentsWindows.*;
+import advancedComponents.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,9 +26,9 @@ public class MainWindow extends JFrame {
     private JList<String> componentsList;
     private JLabel imageLabel;
 
-    private ImageIcon[] imageIcons = {new ImageIcon("src/files/ListMouseSelection.png"), new ImageIcon("src/files/Table.png"),
-            new ImageIcon("src/files/FileSystemTreeWithCheckBox.png"), new ImageIcon("src/files/TextComponentDemoMetal.png"),
-            new ImageIcon("src/files/ProgressBarDemo.png"), new ImageIcon("src/files/decoration.png")};
+    private ImageIcon[] imageIcons = {new ImageIcon("src/files/images/lists_1.png"), new ImageIcon("src/files/images/tables_2.png"),
+            new ImageIcon("src/files/images/trees_3.png"), new ImageIcon("src/files/images/comps_4.png"),
+            new ImageIcon("src/files/images/progress_5.png"), new ImageIcon("src/files/decoration.png")};
 
     public MainWindow() throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -107,6 +107,9 @@ public class MainWindow extends JFrame {
         pack();
     }
 
+    /**
+     * Otwiera wybrane przez użytkownika okno.
+     */
     public void openSelectedWindow() {
         int index = componentsList.getSelectedIndex();
         if (index == LIST_WINDOW) EventQueue.invokeLater(ListWindow::new);

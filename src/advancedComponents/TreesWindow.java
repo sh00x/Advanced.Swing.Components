@@ -1,4 +1,4 @@
-package advancedComponentsWindows;
+package advancedComponents;
 
 import trees.TreeOne;
 import trees.TreeThree;

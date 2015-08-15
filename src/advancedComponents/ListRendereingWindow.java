@@ -1,4 +1,4 @@
-package advancedComponentsWindows;
+package advancedComponents;
 
 import additionalResources.FontCellRenderer;
 
@@ -23,7 +23,7 @@ public class ListRendereingWindow extends JFrame {
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
 
         try {
-            setPaneText("src/files/listek.txt", textPane);
+            setPaneText("srcfiles/textFiles/listek.txt", textPane);
         } catch (IOException e) {
             e.printStackTrace();
         }

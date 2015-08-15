@@ -1,4 +1,4 @@
-package advancedComponentsWindows;
+package advancedComponents;
 
 import textComponents.CompFour;
 import textComponents.CompOne;
@@ -13,11 +13,12 @@ import java.awt.*;
  */
 public class TextCompWindow extends JFrame {
     private final int SIZEX = 400;
-    private final int SIZEY = 90;
+    private final int SIZEY = 155;
 
     private JPanel buttonPanel;
 
     public TextCompWindow() {
+        setLayout(new GridLayout(2, 1));
         buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
 
@@ -36,6 +37,7 @@ public class TextCompWindow extends JFrame {
         buttonPanel.add(compThree);
         buttonPanel.add(compFour);
 
+        add(new JLabel("Wybierz jeden z komponentów:", JLabel.CENTER));
         add(buttonPanel);
 
         //Konfiguracja fizycznych właściwości okna

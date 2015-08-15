@@ -5,16 +5,20 @@
     <file url="file://$PROJECT_DIR$/src/additionalResources/FontCellRenderer.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/additionalResources/IPAddressFormatter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/additionalResources/IntFilter.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/advancedComponentsWindows/ListRendereingWindow.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/advancedComponentsWindows/ListWindow.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/advancedComponentsWindows/OrgAndDecsWindow.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/advancedComponentsWindows/ProgressStatusWindow.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/advancedComponentsWindows/TablesWindow.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/advancedComponentsWindows/TextCompWindow.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/advancedComponentsWindows/TreesWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/ListRendereingWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/ListWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/OrgAndDecsWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/ProgressStatusWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/TablesWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/TextCompWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/TreesWindow.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/appCore/Main.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/appCore/MainWindow.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/files/listek.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/files/textFiles/listek.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/files/textFiles/panTadeusz.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/progressBars/ProgressOne.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/progressBars/ProgressThree.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/progressBars/ProgressTwo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/tables/TableTwo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/tables/TableTwoModel.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/textComponents/CompFour.java" charset="UTF-8" />
