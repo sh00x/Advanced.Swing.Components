@@ -7,9 +7,16 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
-
+/**
+ * Okno zawierające listę czcionek, które są renderowane na bieżąco.
+ *
+ * @author sh00x.dev
+ */
 public class ListRendereingWindow extends JFrame {
     public ListRendereingWindow() {
         JPanel mainPanel = new JPanel();
@@ -47,7 +54,6 @@ public class ListRendereingWindow extends JFrame {
         mainPanel.add(listPanel, BorderLayout.SOUTH);
         add(mainPanel);
 
-        //Ustawienia fizycznych właściwości okna
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Okno list - @sh00x.dev");
         int SIZEX = 400;
@@ -81,13 +87,14 @@ public class ListRendereingWindow extends JFrame {
 
     /**
      * Funkcja sprawdzająca jakie czcionki dostępne są w systemie
+     *
      * @return Font[] dostępnych w systemie
      */
     private Font[] getFonts() {
         String[] fontFamilyNames = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
         Font[] fonts = new Font[fontFamilyNames.length];
 
-        for(int i = 0; i < fonts.length; i++)
+        for (int i = 0; i < fonts.length; i++)
             fonts[i] = new Font(fontFamilyNames[i], Font.PLAIN, 14);
 
         return fonts;

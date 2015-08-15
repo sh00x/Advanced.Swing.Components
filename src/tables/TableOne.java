@@ -25,7 +25,7 @@ public class TableOne extends JFrame {
 
     public TableOne() {
         /*
-         * From docs.oracle.com:
+         * Z docs.oracle.com:
          * JTable(int numRows, int numColumns)
          * Constructs a JTable with numRows and numColumns of empty cells using DefaultTableModel.
          */
@@ -41,7 +41,6 @@ public class TableOne extends JFrame {
         buttonPanel.add(printButton);
         add(buttonPanel, BorderLayout.SOUTH);
 
-        //Konfiguracja fizycznych w³aœciwoœci ramki
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new Dimension(900, 250));
         setTitle("Tabela 1 - @sh00x.dev");

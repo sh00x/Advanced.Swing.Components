@@ -8,11 +8,10 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Ensies on 2015-07-29.
+ * Okno zawierające przyciski otwierające
+ * poszczególne tabele
  */
 public class TablesWindow extends JFrame {
-    private final int SIZEX = 400;
-    private final int SIZEY = 100;
 
     public TablesWindow() {
         JButton tableOne = new JButton("Tabela 1");
@@ -38,15 +37,11 @@ public class TablesWindow extends JFrame {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
 
-        /*Celowo zastosowałem zagnieżdżenie większej liczby paneli, aby zwiększyć przyszłą ewentualna
-        elastycznośc programu pod rozbudowę*/
         mainPanel.add(toolsPanel);
         add(mainPanel);
 
-        //Konfiguracja fizycznych właściwości ramki
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Okno tabel - @sh00x.dev");
-        setPreferredSize(new Dimension(SIZEX, SIZEY));
         setLocationByPlatform(true);
         setResizable(false);
         setVisible(true);

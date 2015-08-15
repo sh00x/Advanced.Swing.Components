@@ -37,7 +37,6 @@ public class TreesWindow extends JFrame {
 
         add(toolsPanel);
 
-        //Konfiguracja fizycznych właściwości okna
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new Dimension(SIZEX, SIZEY));
         setTitle("Okno drzew - @sh00x.dev");

@@ -35,7 +35,6 @@ public class ProgressStatusWindow extends JFrame {
         add(new JLabel("Wybierz jedno z okien:", JLabel.CENTER));
         add(buttonPanel);
 
-        //Konfiguracja okienka
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Okno wskaźników postępu - @sh00x.dev");
         setLocationByPlatform(true);

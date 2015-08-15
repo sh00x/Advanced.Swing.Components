@@ -3,7 +3,9 @@ package additionalResources;
 import javax.swing.*;
 import java.awt.*;
 
-
+/**
+ * Umożliwia podgląd zaznaczonej czcionki "na żywo" na liście
+ */
 public class FontCellRenderer extends JComponent implements ListCellRenderer<Font> {
     private Font font;
     private Color background;

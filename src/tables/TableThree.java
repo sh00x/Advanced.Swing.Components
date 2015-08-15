@@ -8,9 +8,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 
-/**
- * Created by Ensies on 2015-07-31.
- */
+
 public class TableThree extends JFrame {
     private static final int DEFAULT_WIDTH = 600;
     private static final int DEFAULT_HEIGHT = 500;
@@ -165,9 +163,7 @@ public class TableThree extends JFrame {
         });
         tableMenu.add(printSelectionItem);
 
-        //Konfiguracja fizycznych w³aœciwoœci ramki
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-       // setPreferredSize(new Dimension(900, 900));
         setTitle("Tabela 3 - @sh00x.dev");
         setLocationByPlatform(true);
         setVisible(true);

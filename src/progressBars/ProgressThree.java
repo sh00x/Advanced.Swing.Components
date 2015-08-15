@@ -6,12 +6,15 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.Scanner;
 
 /**
- * Created by Ensies on 2015-08-15.
+ * Klasa wczytująca dany plik tekstowy do pola tekstowego,
+ * pokazując przy tym pasek postępu.
  */
 public class ProgressThree extends JFrame {
     private JMenuItem openItem;
@@ -61,7 +64,6 @@ public class ProgressThree extends JFrame {
 
         fileMenu.add(exitItem);
 
-        //Konfiguracja okienka
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Okno wskaźników postępu 3 - @sh00x.dev");
         setPreferredSize(new Dimension(400, 400));

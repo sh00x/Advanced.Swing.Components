@@ -2,7 +2,9 @@ package tables;
 
 import javax.swing.table.AbstractTableModel;
 
-
+/**
+ * Model wykorzystany w tabeli nr. 2
+ */
 public class TableTwoModel extends AbstractTableModel {
     private static double INITIAL_BALANCE = 100000.0;
 

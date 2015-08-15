@@ -32,7 +32,7 @@ public class IntFilter extends DocumentFilter {
                 if (!Character.isDigit(cp) && cp != '-') {
                     builder.deleteCharAt(i);
                     if (Character.isSupplementaryCodePoint(cp)) {
-                        i--;    //TODO: Why?
+                        i--;
                         builder.deleteCharAt(i);
                     }
                 }

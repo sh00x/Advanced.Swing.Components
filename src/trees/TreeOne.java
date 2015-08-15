@@ -4,7 +4,9 @@ import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
 
-
+/**
+ * Okno zawierające pierwszy przykład drzewa
+ */
 public class TreeOne extends JFrame {
     private static final int DEFAULT_WIDTH = 300;
     private static final int DEFAULT_HEIGHT = 200;
@@ -58,7 +60,6 @@ public class TreeOne extends JFrame {
         JTree tree = new JTree(root);
         add(new JScrollPane(tree));
 
-        //Konfiguracja fizycznych właściwości okna
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
         setTitle("Drzewo 1 - @sh00x.dev");

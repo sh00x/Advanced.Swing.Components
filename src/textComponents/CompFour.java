@@ -74,7 +74,7 @@ public class CompFour extends JFrame {
 
         add(new JScrollPane(editorPane), BorderLayout.CENTER);
 
-        //Umieszcza wszystkei komponenty na głównym panelu okna
+        //Umieszcza wszystkie komponenty na głównym panelu okna
         JPanel panel = new JPanel();
         panel.add(new JLabel("URL"));
         panel.add(urlField);
@@ -85,7 +85,6 @@ public class CompFour extends JFrame {
 
         add(panel, BorderLayout.SOUTH);
 
-        //Konfiguracja fizycznych właściwości okna
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Okno komponentów tekstowych - @sh00x.dev");
         setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));

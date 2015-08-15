@@ -26,9 +26,22 @@ public class MainWindow extends JFrame {
     private JList<String> componentsList;
     private JLabel imageLabel;
 
-    private ImageIcon[] imageIcons = {new ImageIcon("src/files/images/lists_1.png"), new ImageIcon("src/files/images/tables_2.png"),
-            new ImageIcon("src/files/images/trees_3.png"), new ImageIcon("src/files/images/comps_4.png"),
-            new ImageIcon("src/files/images/progress_5.png"), new ImageIcon("src/files/decoration.png")};
+    private ImageIcon[] imageIcons = {
+            new ImageIcon("src/files/images/lists_1.png"),
+            new ImageIcon("src/files/images/tables_2.png"),
+            new ImageIcon("src/files/images/trees_3.png"),
+            new ImageIcon("src/files/images/comps_4.png"),
+            new ImageIcon("src/files/images/progress_5.png"),
+            new ImageIcon("src/files/images/orga_6.png")};
+
+    private String[] componentsNames = {
+            "1. Listy",
+            "2. Tabele",
+            "3. Drzewa",
+            "4. Komponenty tekstowe",
+            "5. Wskaźniki postępu",
+            "6. Organizatory komponentów i dekoratory "
+    };
 
     public MainWindow() throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -39,8 +52,6 @@ public class MainWindow extends JFrame {
         imageLabel.setIcon(imageIcons[0]);
 
         //Konfiguracja listy oraz dodanie jej do JScrollPane
-        String[] componentsNames = {"1. Listy", "2. Tabele", "3. Drzewa", "4. Komponenty tekstowe",
-                "5. Wskaźniki postępu", "6. Organizatory komponentów i dekoratory "};
         componentsList = new JList<>(componentsNames);
         componentsList.add(new JSeparator());
         componentsList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -48,8 +59,6 @@ public class MainWindow extends JFrame {
 
         JScrollPane listScrollPane = new JScrollPane(componentsList);
         JButton openWindowButton = new JButton("Otwórz przykład w nowym oknie");
-
-
 
         componentsList.addKeyListener(new KeyAdapter() {
             @Override
@@ -117,6 +126,6 @@ public class MainWindow extends JFrame {
         else if (index == TREES_WINDOW) EventQueue.invokeLater(TreesWindow::new);
         else if (index == TEXT_COMP_WINDOW) EventQueue.invokeLater(TextCompWindow::new);
         else if (index == PROGRESS_POINTERS_WINDOW) EventQueue.invokeLater(ProgressStatusWindow::new);
-        else if (index == ORG_COMPS_AND_DECS) EventQueue.invokeLater(OrgAndDecsWindow::new);
+        else if (index == ORG_COMPS_AND_DECS) EventQueue.invokeLater(OrganizationWindow::new);
     }
 }

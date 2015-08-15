@@ -9,12 +9,11 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Ensies on 2015-07-29.
+ * Okno zawierające przyciski otwierające
+ * kolejne JFrame z różnymi komponentami
+ * tekstowymi
  */
 public class TextCompWindow extends JFrame {
-    private final int SIZEX = 400;
-    private final int SIZEY = 155;
-
     private JPanel buttonPanel;
 
     public TextCompWindow() {
@@ -40,10 +39,8 @@ public class TextCompWindow extends JFrame {
         add(new JLabel("Wybierz jeden z komponentów:", JLabel.CENTER));
         add(buttonPanel);
 
-        //Konfiguracja fizycznych właściwości okna
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Okno komponentów tekstowych - @sh00x.dev");
-        setPreferredSize(new Dimension(SIZEX, SIZEY));
         setLocationByPlatform(true);
         setResizable(false);
         setVisible(true);

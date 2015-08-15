@@ -5,9 +5,7 @@ import java.awt.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-/**
- * Created by Ensies on 2015-08-05.
- */
+
 public class CompThree extends JFrame {
     private JPanel mainPanel;
     private JButton okButton;
@@ -57,7 +55,6 @@ public class CompThree extends JFrame {
 
         setTitle("Okno komponentów tekstowych 3 - @sh00x.dev");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        //setPreferredSize(new Dimension(700, 400));
         setVisible(true);
         pack();
     }

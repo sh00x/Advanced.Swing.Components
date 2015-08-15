@@ -30,7 +30,7 @@ public class IPAddressFormatter extends DefaultFormatter {
         StringTokenizer tokenizer = new StringTokenizer(text, ".");
         byte[] a = new byte[4];
         for (int i = 0; i < 4; i++) {
-            int b = 0;
+            int b;
             if (!tokenizer.hasMoreTokens()) throw new ParseException("Too few bytes", 0);
             try {
                 b = Integer.parseInt(tokenizer.nextToken());

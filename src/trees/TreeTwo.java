@@ -7,9 +7,6 @@ import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 import java.awt.*;
 
-/**
- * Created by Ensies on 2015-08-01.
- */
 public class TreeTwo extends JFrame {
     private static final int DEFAULT_WIDTH = 400;
     private static final int DEFAULT_HEIGHT = 200;
@@ -37,7 +34,6 @@ public class TreeTwo extends JFrame {
 
         makeButtons();
 
-        //Konfiguracja fizycznych w³aœciwoœci okna
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
         setTitle("Drzewo 2 - @sh00x.dev");
@@ -47,7 +43,6 @@ public class TreeTwo extends JFrame {
     }
 
     public TreeNode makeSampleTree() {
-        //TODO: Sprawdziæ poprawnoœæ z ksi¹¿k¹
         //Tworzy model drzewa
         root = new DefaultMutableTreeNode("World");
 

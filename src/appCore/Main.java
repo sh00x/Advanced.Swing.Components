@@ -3,6 +3,9 @@ package appCore;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Klasa main całego programu.
+ */
 public class Main {
 
     public static void main(String[] args) {

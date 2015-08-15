@@ -7,7 +7,7 @@ import java.awt.*;
 import java.lang.reflect.Modifier;
 
 /**
- * Created by Ensies on 2015-08-03.
+ * Umożliwia wstawienie ikon zamkniętych oraz otwartych węzłów, a także liści w drzewie.
  */
 public class ClassNameTreeCellRenderer extends DefaultTreeCellRenderer {
     private Font plainFont = null;

@@ -37,10 +37,8 @@ public class CompOne extends JFrame {
 
         add(panel);
 
-        //Konfiguracja fizycznych właściwości okna
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Okno komponentów tekstowych 1 - @sh00x.dev");
-        //setPreferredSize(new Dimension(SIZEX, SIZEY));
         setResizable(false);
         setVisible(true);
         pack();

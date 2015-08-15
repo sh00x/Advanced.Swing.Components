@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Ensies on 2015-08-15.
+ * Klasa monitorująca postęp danej czynności
  */
 public class ProgressTwo extends JFrame {
     public static final int TEXT_ROWS = 10;
@@ -55,7 +55,6 @@ public class ProgressTwo extends JFrame {
         });
         pack();
 
-        //Konfiguracja okienka
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Okno wskaźników postępu 2 - @sh00x.dev");
         setLocationByPlatform(true);

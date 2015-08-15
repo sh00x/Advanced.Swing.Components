@@ -2,7 +2,6 @@ package progressBars;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
 import java.util.List;
 
 /**
@@ -51,8 +50,6 @@ public class ProgressOne extends JFrame {
             activity.execute();
         });
 
-
-        //Konfiguracja okienka
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Okno wskaźników postępu 1 - @sh00x.dev");
         setLocationByPlatform(true);
@@ -86,7 +83,8 @@ public class ProgressOne extends JFrame {
                     current++;
                     publish(current);
                 }
-            } catch (InterruptedException e) {};
+            } catch (InterruptedException e) {
+            }
             return null;
         }
 

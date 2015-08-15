@@ -1,7 +1,5 @@
 package trees;
 
-import additionalResources.ClassNameTreeCellRenderer;
-
 import javax.swing.*;
 import javax.swing.tree.*;
 import java.awt.*;
@@ -10,9 +8,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Enumeration;
 
-/**
- * Created by Ensies on 2015-08-03.
- */
 public class TreeThree extends JFrame {
     private static final int DEFAULT_WIDTH = 400;
     private static final int DEFAULT_HEIGHT = 300;
@@ -61,10 +56,8 @@ public class TreeThree extends JFrame {
         panel.add(new JScrollPane(textArea));
 
         add(panel, BorderLayout.CENTER);
-
         addTextField();
 
-        //Konfiguracja fizycznych właściwości okna
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
         setTitle("Drzewo 3 - @sh00x.dev");

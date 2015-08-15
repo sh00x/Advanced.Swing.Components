@@ -7,7 +7,7 @@
     <file url="file://$PROJECT_DIR$/src/additionalResources/IntFilter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/advancedComponents/ListRendereingWindow.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/advancedComponents/ListWindow.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/advancedComponents/OrgAndDecsWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/advancedComponents/OrganizationWindow.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/advancedComponents/ProgressStatusWindow.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/advancedComponents/TablesWindow.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/advancedComponents/TextCompWindow.java" charset="UTF-8" />
@@ -16,6 +16,7 @@
     <file url="file://$PROJECT_DIR$/src/appCore/MainWindow.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/files/textFiles/listek.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/files/textFiles/panTadeusz.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/organizers/OrganizerOne.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/progressBars/ProgressOne.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/progressBars/ProgressThree.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/progressBars/ProgressTwo.java" charset="UTF-8" />

@@ -144,7 +144,6 @@ public class CompTwo extends JFrame {
         final JLabel valueLabel = new JLabel();
         mainPanel.add(valueLabel);
 
-        //TODO: What the hell
         okButton.addActionListener(e -> {
             Object value = field.getValue();
             Class<?> cl = value.getClass();

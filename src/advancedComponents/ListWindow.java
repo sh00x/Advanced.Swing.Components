@@ -8,8 +8,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 /**
- * Created by sh00x.dev
- * Simple application with Advanced Swing Components
+ * Prosta aplikacja zawierająca zaawansowane komponenty biblioteki Swing.
+ * Napisana tylko i wyłącznie w celach edukacyjnych.
  *
  * @author sh00x.dev
  */
@@ -115,7 +115,6 @@ public class ListWindow extends JFrame {
 
     fontCellFrameButton.addActionListener(e -> EventQueue.invokeLater(ListRendereingWindow::new));
 
-    //Ustawienia fizycznych właściwości okna
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     setTitle("Okno list - @sh00x.dev");
     setPreferredSize(new Dimension(400, 400));
