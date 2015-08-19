@@ -1,6 +1,7 @@
 package advancedComponents;
 
 import organizers.OrganizerOne;
+import organizers.OrganizerTwo;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,15 +21,14 @@ public class OrganizationWindow extends JFrame {
         setLayout(new GridLayout(2, 1));
 
         organizerOne = new JButton("Split Pane Frame");
-        organizerTwo = new JButton("Organizer 2");
-        organizerThree = new JButton("Organizer 3");
+        organizerTwo = new JButton("Tabbed Pane Frame");
 
         organizerOne.addActionListener(e -> EventQueue.invokeLater(OrganizerOne::new));
+        organizerTwo.addActionListener(e -> EventQueue.invokeLater(OrganizerTwo::new));
 
         mainPanel = new JPanel();
         mainPanel.add(organizerOne);
         mainPanel.add(organizerTwo);
-        mainPanel.add(organizerThree);
 
         add(new JLabel("Wybierz jedną z opcji:", JLabel.CENTER));
         add(mainPanel);

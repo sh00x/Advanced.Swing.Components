@@ -1,6 +1,10 @@
 package appCore;
 
 import advancedComponents.*;
+import clipboard.ClipboardWindow;
+import lists.ListWindow;
+import printing.PrintingWindow;
+import printing.TextPrintingWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,12 +20,16 @@ import java.awt.event.MouseEvent;
  * @author sh00x.dev
  */
 public class MainWindow extends JFrame {
-    private final static int LIST_WINDOW = 0;
-    private final static int TABLES_WINDOW = 1;
-    private final static int TREES_WINDOW = 2;
-    private final static int TEXT_COMP_WINDOW = 3;
-    private final static int PROGRESS_POINTERS_WINDOW = 4;
-    private final static int ORG_COMPS_AND_DECS = 5;
+    private static final int LIST_WINDOW = 0;
+    private static final int TABLES_WINDOW = 1;
+    private static final int TREES_WINDOW = 2;
+    private static final int TEXT_COMP_WINDOW = 3;
+    private static final int PROGRESS_POINTERS_WINDOW = 4;
+    private static final int ORG_COMPS_AND_DECS = 5;
+    private static final int PRINTING_WINDOW = 6;
+    private static final int PRINTING_TEXT_WINDOW = 7;
+    private static final int PRINTING_IMG_WINDOW = 8;
+    private static final int CLIPBOARD_WINDOW = 9;
 
     private JList<String> componentsList;
     private JLabel imageLabel;
@@ -32,7 +40,12 @@ public class MainWindow extends JFrame {
             new ImageIcon("src/files/images/trees_3.png"),
             new ImageIcon("src/files/images/comps_4.png"),
             new ImageIcon("src/files/images/progress_5.png"),
-            new ImageIcon("src/files/images/orga_6.png")};
+            new ImageIcon("src/files/images/orga_6.png"),
+            new ImageIcon("src/files/images/printing_7.png"),
+            new ImageIcon("src/files/images/textPrint_8.png"),
+            new ImageIcon(),
+            new ImageIcon("src/files/images/clipboard_9.png")
+    };
 
     private String[] componentsNames = {
             "1. Listy",
@@ -40,7 +53,11 @@ public class MainWindow extends JFrame {
             "3. Drzewa",
             "4. Komponenty tekstowe",
             "5. Wskaźniki postępu",
-            "6. Organizatory komponentów i dekoratory "
+            "6. Organizatory komponentów i dekoratory ",
+            "[AWT] 7. Drukowanie",
+            "[AWT] 8. Drukowanie tekstu",
+            "[AWT] 9. Drukowanie obrazu",
+            "[AWT] 10. Schowek systemowy"
     };
 
     public MainWindow() throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
@@ -79,8 +96,18 @@ public class MainWindow extends JFrame {
         });
 
         componentsList.addListSelectionListener(e -> {
-            int index = componentsList.getSelectedIndex();
-            imageLabel.setIcon(imageIcons[index]);
+            try {
+                int index = componentsList.getSelectedIndex();
+                if (index == PRINTING_IMG_WINDOW) {
+                    imageLabel.setIcon(null);
+                    imageLabel.setText("COMING SOON");
+                } else {
+                    imageLabel.setText(null);
+                    imageLabel.setIcon(imageIcons[index]);
+                }
+            } catch (Exception ex) {
+                System.err.println("Brak obrazu dla danego elementu listy!\n" + ex);
+            }
         });
 
         openWindowButton.addActionListener(e -> openSelectedWindow());
@@ -120,6 +147,7 @@ public class MainWindow extends JFrame {
      * Otwiera wybrane przez użytkownika okno.
      */
     public void openSelectedWindow() {
+        //TODO: All that final elements put to Array and throw away this shit.
         int index = componentsList.getSelectedIndex();
         if (index == LIST_WINDOW) EventQueue.invokeLater(ListWindow::new);
         else if (index == TABLES_WINDOW) EventQueue.invokeLater(TablesWindow::new);
@@ -127,5 +155,8 @@ public class MainWindow extends JFrame {
         else if (index == TEXT_COMP_WINDOW) EventQueue.invokeLater(TextCompWindow::new);
         else if (index == PROGRESS_POINTERS_WINDOW) EventQueue.invokeLater(ProgressStatusWindow::new);
         else if (index == ORG_COMPS_AND_DECS) EventQueue.invokeLater(OrganizationWindow::new);
+        else if (index == PRINTING_WINDOW) EventQueue.invokeLater(PrintingWindow::new);
+        else if (index == PRINTING_TEXT_WINDOW) EventQueue.invokeLater(TextPrintingWindow::new);
+        else if (index == CLIPBOARD_WINDOW) EventQueue.invokeLater(ClipboardWindow::new);
     }
 }

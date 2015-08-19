@@ -1,4 +1,4 @@
-package advancedComponents;
+package lists;
 
 import additionalResources.FontCellRenderer;
 
@@ -23,6 +23,7 @@ public class ListRendereingWindow extends JFrame {
         mainPanel.setLayout(new GridLayout(2, 1));
 
         JTextPane textPane = new JTextPane();
+
         //Zapewnia formatowanie tekstu
         StyledDocument doc = textPane.getStyledDocument();
         SimpleAttributeSet center = new SimpleAttributeSet();

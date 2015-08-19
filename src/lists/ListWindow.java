@@ -1,4 +1,4 @@
-package advancedComponents;
+package lists;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -21,6 +21,7 @@ public class ListWindow extends JFrame {
 
     private JPanel northPanel;
     private JPanel radioPanel;
+    private JPanel mainPanel;
 
     private ButtonGroup radioButtonGroup;
 
@@ -76,7 +77,7 @@ public class ListWindow extends JFrame {
         listingPanel.add(fontCellFrameButton);
         toolsPanel.add(listingPanel);
 
-        JPanel mainPanel = new JPanel();
+        mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.add(northPanel, BorderLayout.CENTER);
         mainPanel.add(toolsPanel, BorderLayout.SOUTH);

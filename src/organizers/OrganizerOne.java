@@ -14,7 +14,7 @@ public class OrganizerOne extends JFrame {
 
     final JTextArea windowDescription;
 
-    private ImageIcon[] windows = {
+    final private ImageIcon[] windows = {
             new ImageIcon("src/files/images/lists_1.png"),
             new ImageIcon("src/files/images/tables_2.png"),
             new ImageIcon("src/files/images/trees_3.png"),
@@ -23,7 +23,7 @@ public class OrganizerOne extends JFrame {
             new ImageIcon("src/files/images/orga_6.png")
     };
 
-    private String[] windowsNames = {
+    final private String[] windowsNames = {
             "Listy",
             "Tabele",
             "Drzewa",
@@ -32,7 +32,7 @@ public class OrganizerOne extends JFrame {
             "Organizatory i dekoratory"
     };
 
-    private String[] windowsDescs = {
+    final private String[] windowsDescs = {
             "Okno zawierające różnego rodzaju listy.",
             "Okno zawierające różnego rodzaju tabele.",
             "Okno zawierające różnego rodzaju drzewa.",
