@@ -2,6 +2,8 @@ package appCore;
 
 import advancedComponents.*;
 import clipboard.ClipboardWindow;
+import clipboard.ImageClipboardWindow;
+import clipboard.JavaClipboardWindow;
 import lists.ListWindow;
 import printing.PrintingWindow;
 import printing.TextPrintingWindow;
@@ -12,6 +14,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * Created by sh00x.dev
@@ -30,6 +35,8 @@ public class MainWindow extends JFrame {
     private static final int PRINTING_TEXT_WINDOW = 7;
     private static final int PRINTING_IMG_WINDOW = 8;
     private static final int CLIPBOARD_WINDOW = 9;
+    private static final int IMAGE_CLIPBOARD_WINDOW = 10;
+    private static final int JAVA_CLIPBOARD_WINDOW = 11;
 
     private JList<String> componentsList;
     private JLabel imageLabel;
@@ -44,7 +51,9 @@ public class MainWindow extends JFrame {
             new ImageIcon("src/files/images/printing_7.png"),
             new ImageIcon("src/files/images/textPrint_8.png"),
             new ImageIcon(),
-            new ImageIcon("src/files/images/clipboard_9.png")
+            new ImageIcon("src/files/images/clipboard_9.png"),
+            new ImageIcon("src/files/images/imageClip_10.png"),
+            new ImageIcon("src/files/images/colors_11.png")
     };
 
     private String[] componentsNames = {
@@ -57,11 +66,15 @@ public class MainWindow extends JFrame {
             "[AWT] 7. Drukowanie",
             "[AWT] 8. Drukowanie tekstu",
             "[AWT] 9. Drukowanie obrazu",
-            "[AWT] 10. Schowek systemowy"
+            "[AWT] 10. Schowek systemowy",
+            "[AWT] 11. Schowek systemowy - obrazy",
+            "[AWT] 12. Schowek systemowy - Java"
     };
 
-    public MainWindow() throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
+    public MainWindow() throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, IOException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
+        JOptionPane.showMessageDialog(this, readWelcomeDialog(), "Zanim zaczniesz.", JOptionPane.INFORMATION_MESSAGE);
 
         //JLabel zawierająca ilustrację elementu
         imageLabel = new JLabel();
@@ -98,7 +111,7 @@ public class MainWindow extends JFrame {
         componentsList.addListSelectionListener(e -> {
             try {
                 int index = componentsList.getSelectedIndex();
-                if (index == PRINTING_IMG_WINDOW) {
+                if (imageIcons[index].getImage() == null) {
                     imageLabel.setIcon(null);
                     imageLabel.setText("COMING SOON");
                 } else {
@@ -158,5 +171,20 @@ public class MainWindow extends JFrame {
         else if (index == PRINTING_WINDOW) EventQueue.invokeLater(PrintingWindow::new);
         else if (index == PRINTING_TEXT_WINDOW) EventQueue.invokeLater(TextPrintingWindow::new);
         else if (index == CLIPBOARD_WINDOW) EventQueue.invokeLater(ClipboardWindow::new);
+        else if (index == IMAGE_CLIPBOARD_WINDOW) EventQueue.invokeLater(ImageClipboardWindow::new);
+        else if (index == JAVA_CLIPBOARD_WINDOW) EventQueue.invokeLater(JavaClipboardWindow::new);
+    }
+
+    /**
+     * Wczytuje dane do okna powitalnego
+     */
+    private String readWelcomeDialog() throws IOException {
+        StringBuilder builder = new StringBuilder();
+        BufferedReader reader = new BufferedReader(new FileReader("src/appCore/cfg/infoDialog.txt"));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            builder.append(line).append("\n");
+        }
+        return builder.toString();
     }
 }

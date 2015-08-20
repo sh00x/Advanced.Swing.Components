@@ -2,6 +2,7 @@ package appCore;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * Klasa main całego programu.
@@ -19,6 +20,8 @@ public class Main {
             } catch (InstantiationException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
