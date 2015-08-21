@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.beans.EventHandler;
 
 /**
- * To podejœcie NIE JEST zalecane. Polecam skorzystaæ przynajmniej z TableTwo
+ * To podejÅ›cie NIE JEST zalecane. Polecam skorzystaÄ‡ przynajmniej z TableTwo
  */
 public class TableOne extends JFrame {
     private String[] columnNames = {"Planet", "Radius", "Moons", "Gaseous", "Color"};

@@ -2,9 +2,12 @@ package appCore;
 
 import advancedComponents.*;
 import clipboard.ClipboardWindow;
+import clipboard.DragAndDrop;
 import clipboard.ImageClipboardWindow;
 import clipboard.JavaClipboardWindow;
 import lists.ListWindow;
+import osIntegration.DesktopApps;
+import osIntegration.SystemTrayTest;
 import printing.PrintingWindow;
 import printing.TextPrintingWindow;
 
@@ -37,10 +40,15 @@ public class MainWindow extends JFrame {
     private static final int CLIPBOARD_WINDOW = 9;
     private static final int IMAGE_CLIPBOARD_WINDOW = 10;
     private static final int JAVA_CLIPBOARD_WINDOW = 11;
+    private static final int DRAG_N_DROP_WINDOW = 12;
+    private static final int DESKTOP_APPS_WINDOW = 13;
 
     private JList<String> componentsList;
     private JLabel imageLabel;
+    private JMenuBar menuBar;
+    private boolean trayIcon = false;
 
+    //TODO: Make static public and use in evy other class
     private ImageIcon[] imageIcons = {
             new ImageIcon("src/files/images/lists_1.png"),
             new ImageIcon("src/files/images/tables_2.png"),
@@ -53,7 +61,9 @@ public class MainWindow extends JFrame {
             new ImageIcon(),
             new ImageIcon("src/files/images/clipboard_9.png"),
             new ImageIcon("src/files/images/imageClip_10.png"),
-            new ImageIcon("src/files/images/colors_11.png")
+            new ImageIcon("src/files/images/colors_11.png"),
+            new ImageIcon("src/files/images/drag_12.png"),
+            new ImageIcon("src/files/images/desktopApp_13.png")
     };
 
     private String[] componentsNames = {
@@ -68,13 +78,48 @@ public class MainWindow extends JFrame {
             "[AWT] 9. Drukowanie obrazu",
             "[AWT] 10. Schowek systemowy",
             "[AWT] 11. Schowek systemowy - obrazy",
-            "[AWT] 12. Schowek systemowy - Java"
+            "[AWT] 12. Schowek systemowy - Java",
+            "[AWT] 13. Przeciągnij i upuść",
+            "[AWT] 14. Aplikacje systemowe"
     };
 
     public MainWindow() throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, IOException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
-        JOptionPane.showMessageDialog(this, readWelcomeDialog(), "Zanim zaczniesz.", JOptionPane.INFORMATION_MESSAGE);
+        JMenu helpMenu = new JMenu("Pomoc");
+        JMenuItem aboutItem = new JMenuItem("O programie");
+        JMenuItem helpItem = new JMenuItem("Pomoc");
+        JMenuItem trayItem = new JMenuItem("Pokaż w zasobniku");
+
+        menuBar = new JMenuBar();
+        menuBar.setBorderPainted(true);
+        menuBar.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);   //menuBar.add(Box.createHorizontalGlue());
+        menuBar.add(helpMenu);
+
+        helpItem.addActionListener(e -> JOptionPane.showMessageDialog(this, "Coming soon", "Coming soon", JOptionPane.INFORMATION_MESSAGE));
+
+        aboutItem.addActionListener(e -> {
+            try {
+                JOptionPane.showMessageDialog(this, readWelcomeDialog(), "O programie", JOptionPane.INFORMATION_MESSAGE);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        trayItem.addActionListener(e -> {
+            if (!trayIcon) {
+                SystemTrayTest.init();
+                trayIcon = true;
+            } else {
+                JOptionPane.showMessageDialog(this, "Możesz dodać tylko jedną ikonę do zasobnika systemowego!", "Ostrzeżenie", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
+        helpMenu.add(helpItem);
+        helpMenu.add(aboutItem);
+        helpMenu.addSeparator();
+        helpMenu.add(trayItem);
+        setJMenuBar(menuBar);
 
         //JLabel zawierająca ilustrację elementu
         imageLabel = new JLabel();
@@ -94,7 +139,7 @@ public class MainWindow extends JFrame {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                   openSelectedWindow();
+                    openSelectedWindow();
                 }
             }
         });
@@ -102,7 +147,7 @@ public class MainWindow extends JFrame {
         componentsList.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(e.getClickCount() == 2) {
+                if (e.getClickCount() == 2) {
                     openSelectedWindow();
                 }
             }
@@ -173,6 +218,8 @@ public class MainWindow extends JFrame {
         else if (index == CLIPBOARD_WINDOW) EventQueue.invokeLater(ClipboardWindow::new);
         else if (index == IMAGE_CLIPBOARD_WINDOW) EventQueue.invokeLater(ImageClipboardWindow::new);
         else if (index == JAVA_CLIPBOARD_WINDOW) EventQueue.invokeLater(JavaClipboardWindow::new);
+        else if (index == DRAG_N_DROP_WINDOW) EventQueue.invokeLater(DragAndDrop::new);
+        else if (index == DESKTOP_APPS_WINDOW) EventQueue.invokeLater(DesktopApps::new);
     }
 
     /**

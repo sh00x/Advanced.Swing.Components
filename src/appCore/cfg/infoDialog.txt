@@ -1,21 +1,12 @@
-Witaj u¿ytkowniku.
-Zanim zaczniesz korzystaæ pragnê, abyœ przeczyta³ co mam Ci do przekazania.
-
 1) Program celowo zawiera miliony osobnych okien. £atwiej wtedy odszukaæ 
 w kodzie ten jeden, konkretny fragment który nas interesuje.
-
 2) "That code smells" - czyli kod czêsto jest kiepski. Pisa³em go nierzadko z 
 nudów, a czasami mia³em zajawkê jak Steve Jobs po kwasie. 
-
 3) Stworzy³em ten program i umieœci³em go na GitHubie jako alternatywê, dla
 tradycyjnych notatek w zeszycie (czy gdzie je tam sobie trzymacie). Nie ma
 ¿adnego zastosowania poza podgl¹dem dzia³ania elemetów Swing oraz niektórych
 z biblioteki AWT. Bez dostêpu do kodu jest raczej bezu¿yteczny.
-
 4) Jeœli chcesz coœ poprawiæ, nie krêpuj siê. Pisz do mnie.
-
-5) Mam nadziejê, ¿e przyda siê komuœ podczas nauki Swinga chocia¿ trochê. 
-
+5) Mam nadziejê, ¿e przyda siê komuœ podczas nauki Swinga chocia¿ trochê.
 6) Liczê, ¿e czytaj¹c mój s³aby kod bêdziesz w stanie udoskonaliæ swój.
-
-                                                                                                       Powodzenia!
+Powodzenia!                            
