@@ -26,6 +26,10 @@
     <file url="file://$PROJECT_DIR$/src/organizers/OrganizerTwo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/osIntegration/DesktopApps.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/osIntegration/SystemTrayTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/other/OtherThingsWindow.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/other/resources/BallComponent.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/other/resources/BallRunnable.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/other/windows/BounceWindow.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/printing/PrintComponent.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/printing/PrintingWindow.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/printing/TextPrintingWindow.java" charset="UTF-8" />

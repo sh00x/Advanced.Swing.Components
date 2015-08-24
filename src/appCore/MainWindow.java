@@ -8,6 +8,7 @@ import clipboard.JavaClipboardWindow;
 import lists.ListWindow;
 import osIntegration.DesktopApps;
 import osIntegration.SystemTrayTest;
+import other.OtherThingsWindow;
 import printing.PrintingWindow;
 import printing.TextPrintingWindow;
 
@@ -42,11 +43,13 @@ public class MainWindow extends JFrame {
     private static final int JAVA_CLIPBOARD_WINDOW = 11;
     private static final int DRAG_N_DROP_WINDOW = 12;
     private static final int DESKTOP_APPS_WINDOW = 13;
+    private static final int OTHER_RESOURCES = 14;
 
     private JList<String> componentsList;
     private JLabel imageLabel;
     private JMenuBar menuBar;
     private boolean trayIcon = false;
+    private JButton openWindowButton;
 
     //TODO: Make static public and use in evy other class
     private ImageIcon[] imageIcons = {
@@ -63,7 +66,8 @@ public class MainWindow extends JFrame {
             new ImageIcon("src/files/images/imageClip_10.png"),
             new ImageIcon("src/files/images/colors_11.png"),
             new ImageIcon("src/files/images/drag_12.png"),
-            new ImageIcon("src/files/images/desktopApp_13.png")
+            new ImageIcon("src/files/images/desktopApp_13.png"),
+            new ImageIcon("src/files/images/threads_1.png")
     };
 
     private String[] componentsNames = {
@@ -80,7 +84,8 @@ public class MainWindow extends JFrame {
             "[AWT] 11. Schowek systemowy - obrazy",
             "[AWT] 12. Schowek systemowy - Java",
             "[AWT] 13. Przeciągnij i upuść",
-            "[AWT] 14. Aplikacje systemowe"
+            "[AWT] 14. Aplikacje systemowe",
+            "Other"
     };
 
     public MainWindow() throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException, IOException {
@@ -133,7 +138,7 @@ public class MainWindow extends JFrame {
         componentsList.setSelectedIndex(LIST_WINDOW);
 
         JScrollPane listScrollPane = new JScrollPane(componentsList);
-        JButton openWindowButton = new JButton("Otwórz przykład w nowym oknie");
+        openWindowButton = new JButton("Otwórz przykład w nowym oknie");
 
         componentsList.addKeyListener(new KeyAdapter() {
             @Override
@@ -150,21 +155,6 @@ public class MainWindow extends JFrame {
                 if (e.getClickCount() == 2) {
                     openSelectedWindow();
                 }
-            }
-        });
-
-        componentsList.addListSelectionListener(e -> {
-            try {
-                int index = componentsList.getSelectedIndex();
-                if (imageIcons[index].getImage() == null) {
-                    imageLabel.setIcon(null);
-                    imageLabel.setText("COMING SOON");
-                } else {
-                    imageLabel.setText(null);
-                    imageLabel.setIcon(imageIcons[index]);
-                }
-            } catch (Exception ex) {
-                System.err.println("Brak obrazu dla danego elementu listy!\n" + ex);
             }
         });
 
@@ -187,6 +177,21 @@ public class MainWindow extends JFrame {
         mainPanel.add(listScrollPane, BorderLayout.WEST);
         mainPanel.add(imagePanel);
         add(mainPanel);
+
+        componentsList.addListSelectionListener(e -> {
+            try {
+                int index = componentsList.getSelectedIndex();
+                if (imageIcons[index].getImage() == null) {
+                    imageLabel.setIcon(null);
+                    imageLabel.setText("COMING SOON");
+                } else {
+                    imageLabel.setText(null);
+                    imageLabel.setIcon(imageIcons[index]);
+                }
+            } catch (Exception ex) {
+                System.err.println("Brak obrazu dla danego elementu listy!\n" + ex);
+            }
+        });
 
         //Konfiguracja fizycznych właściwości ramki
         final int SIZE_X = 800;
@@ -220,6 +225,7 @@ public class MainWindow extends JFrame {
         else if (index == JAVA_CLIPBOARD_WINDOW) EventQueue.invokeLater(JavaClipboardWindow::new);
         else if (index == DRAG_N_DROP_WINDOW) EventQueue.invokeLater(DragAndDrop::new);
         else if (index == DESKTOP_APPS_WINDOW) EventQueue.invokeLater(DesktopApps::new);
+        else if (index == OTHER_RESOURCES) EventQueue.invokeLater(OtherThingsWindow::new);
     }
 
     /**
